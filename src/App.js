@@ -1,4 +1,5 @@
 import './App.css';
+<link rel="stylesheet" href="css/profile.css"></link>
 
 function App() {
   return (

@@ -1,10 +1,11 @@
 import './App.css';
-<link rel="stylesheet" href="css/profile.css"></link>
+import ProfilePage from './pages/profile';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
+      <h1>App</h1>
+      <ProfilePage />
     </div>
   );
 }

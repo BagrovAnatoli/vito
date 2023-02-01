@@ -1,191 +1,175 @@
+import classes from './index.module.css'
+
 function ProfilePage() {
     return (
         <body>
-        <div class="wrapper">
-            <div class="container">
-                <header class="header">
-                    <nav class="header__nav">
-                        <div class="header__logo logo-mob">
-                            <a class="logo-mob__link" href="" target="_blank">
-                                <img class="logo-mob__img" src="img/logo-mob.png" alt="logo">
+        <div className={classes.wrapper}>
+            <div className={classes.container}>
+                <header className={classes.header}>
+                    <nav className={classes.header__nav}>
+                        <div className={classes.header__logo logo-mob}>
+                            <a className={classes.logo-mob__link" href="/" target="_blank}>
+                                <img className={classes.logo-mob__img" src="img/logo-mob.png" alt="logo}/>
                             </a>
                         </div>
-                        <button class="header__btn-putAd btn-hov01" id="btputAd">Разместить объявление</button>
-                        <button class="header__btn-lk btn-hov01" id="btnlk">Личный кабинет</button>
-                    </nav>
-                </header>
-                <main class="main">
-                    
-                    <div class="main__container">
-                        <div class="main__center-block">
-                            <div class="main__menu menu">
-                                <a class="menu__logo-link" href="" target="_blank">
-                                    <img class="menu__logo-img" src="img/logo.png" alt="logo">
-                                </a>
-                                <form class="menu__form" action="#">
-                                    <button class="menu__btn btn-hov02" id="btnGoBack">Вернуться на&nbsp;главную</button>
-                                </form>
-                            
-                            </div>
-                            
-                            <h2 class="main__h2">Здравствуйте, Антон!</h2>
-                            
-                            <div class="main__profile profile">
-                                <div class="profile__content">
-                                    <h3 class="profile__title title">Настройки профиля</h3>
-                                    <div class="profile__settings settings">
-                                        <div class="settings__left">
-                                            <div class="settings__img">
-                                                <a href="" target="_self">
-                                                    <img src="#" alt="">
+                        <button className={classes.header__btn-putAd btn-hov01" id="btputAd}>Разместить объявление</button>
+                        <button className={classes.header__btn-lk btn-hov01" id="btnlk}>Личный кабинет</button>
+                    </}>
+                                <div className={classes.profile__content}>
+                                    <h3 className={classes.profile__title title}>Настройки профиля</h3>
+                                    <div className={classes.profile__settings settings}>
+                                        <div className={classes.settings__left}>
+                                            <div className={classes.settings__img}>
+                                                <a href="/" target="_self">
+                                                    <img src="#" alt=""/>
                                                 </a>
                             
                                             </div>
-                                            <a class="settings__change-photo" href="" target="_self">
+                                            <a className={classes.settings__change-photo" href="/" target="_self}>
                                                 Заменить
                                             </a>
                                         </div>
-                                        <div class="settings__right">
-                                            <form class="settings__form" action="#">
-                                                <div class="settings__div">
+                                        <div className={classes.settings__right}>
+                                            <form className={classes.settings__form" action="#}>
+                                                <div className={classes.settings__div}>
                                                     <label for="fname">Имя</label>
-                                                    <input class="settings__f-name" id="settings-fname" name="fname" type="text" value="Ан" placeholder="">
+                                                    <input className={classes.settings__f-name" id="settings-fname" name="fname" type="text" value="Ан" placeholder="}/>
                                                 </div>
                             
-                                                <div class="settings__div">
+                                                <div className={classes.settings__div}>
                                                     <label for="lname">Фамилия</label>
-                                                    <input class="settings__l-name" id="settings-lname" name="lname" type="text" value="Городецкий" placeholder="">
+                                                    <input className={classes.settings__l-name" id="settings-lname" name="lname" type="text" value="Городецкий" placeholder="}/>
                                                 </div>
                             
-                                                <div class="settings__div">
+                                                <div className={classes.settings__div}>
                                                     <label for="city">Город</label>
-                                                    <input class="settings__city" id="settings-city" name="city" type="text" value="Санкт-Петербург" placeholder="">
+                                                    <input className={classes.settings__city" id="settings-city" name="city" type="text" value="Санкт-Петербург" placeholder="}/>
                                                 </div>
                             
-                                                <div class="settings__div">
+                                                <div className={classes.settings__div}>
                                                     <label for="phone">Телефон</label>
-                                                    <input class="settings__phone" id="settings-phone" name="phone" type="tel" value="89161234567" placeholder="+79161234567">
+                                                    <input className={classes.settings__phone" id="settings-phone" name="phone" type="tel" value="89161234567" placeholder="+79161234567}/>
                                                 </div>
                             
-                                                <button class="settings__btn btn-hov02" id="settings-btn">Сохранить</button>
+                                                <button className={classes.settings__btn btn-hov02" id="settings-btn}>Сохранить</button>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             
-                            <h3 class="main__title title">
+                            <h3 className={classes.main__title title}>
                                 Мои товары
                             </h3>
                         </div>
-                        <div class="main__content">
+                        <div className={classes.main__content}>
                             
-                            <div class="content__cards cards">                            
+                            <div className={classes.content__cards cards}>                            
     
-                                <div class="cards__item">
-                                    <div class="cards__card card">
-                                        <div class="card__image">
-                                            <a href="" target="_blank">
-                                                <img src="#" alt="picture">
+                                <div className={classes.cards__item}>
+                                    <div className={classes.cards__card card}>
+                                        <div className={classes.card__image}>
+                                            <a href="/" target="_blank">
+                                                <img src="#" alt="pict"/>
                                             </a>
                                         </div>
-                                        <div class="card__content">
-                                            <a href="" target="_blank">
-                                                <h3 class="card__title">Ракетка для большого тенниса Triumph Pro ST</h3>
+                                        <div className={classes.card__content}>
+                                            <a href="/" target="_blank">
+                                                <h3 className={classes.card__title}>Ракетка для большого тенниса Triumph Pro ST</h3>
                                             </a>
-                                            <p class="card__price">2&nbsp;200&nbsp;₽</p>
-                                            <p class="card__place">Санкт Петербург</p>
-                                            <p class="card__date">Сегодня в&nbsp;10:45</p>
+                                            <p className={classes.card__price}>2&nbsp;200&nbsp;₽</p>
+                                            <p className={classes.card__place}>Санкт Петербург</p>
+                                            <p className={classes.card__date}>Сегодня в&nbsp;10:45</p>
                                         </div>
                                     </div>
                                 </div>
     
-                                <div class="cards__item">
-                                    <div class="cards__card card">
-                                        <div class="card__image">
-                                            <a href="" target="_blank">
-                                                <img src="#" alt="picture">
+                                <div className={classes.cards__item}>
+                                    <div className={classes.cards__card card}>
+                                        <div className={classes.card__image}>
+                                            <a href="/" target="_blank">
+                                                <img src="#" alt="pict"/>
                                             </a>
                                         </div>
-                                        <div class="card__content">
-                                            <a href="" target="_blank">
-                                                <h3 class="card__title">Ракетка для большого тенниса Triumph Pro ST</h3>
+                                        <div className={classes.card__content}>
+                                            <a href="/" target="_blank">
+                                                <h3 className={classes.card__title}>Ракетка для большого тенниса Triumph Pro ST</h3>
                                             </a>
-                                            <p class="card__price">2&nbsp;200&nbsp;₽</p>
-                                            <p class="card__place">Санкт Петербург</p>
-                                            <p class="card__date">Сегодня в&nbsp;10:45</p>
-                                        </div>
-                                    </div>
-                                </div>
-    
-                                <div class="cards__item">
-                                    <div class="cards__card card">
-                                        <div class="card__image">
-                                            <a href="" target="_blank">
-                                                <img src="#" alt="picture">
-                                            </a>
-                                        </div>
-                                        <div class="card__content">
-                                            <a href="" target="_blank">
-                                                <h3 class="card__title">Ракетка для большого тенниса Triumph Pro ST</h3>
-                                            </a>
-                                            <p class="card__price">2&nbsp;200&nbsp;₽</p>
-                                            <p class="card__place">Санкт Петербург</p>
-                                            <p class="card__date">Сегодня в&nbsp;10:45</p>
+                                            <p className={classes.card__price}>2&nbsp;200&nbsp;₽</p>
+                                            <p className={classes.card__place}>Санкт Петербург</p>
+                                            <p className={classes.card__date}>Сегодня в&nbsp;10:45</p>
                                         </div>
                                     </div>
                                 </div>
     
-                                <div class="cards__item">
-                                    <div class="cards__card card">
-                                        <div class="card__image">
-                                            <a href="" target="_blank">
-                                                <img src="#" alt="picture">
+                                <div className={classes.cards__item}>
+                                    <div className={classes.cards__card card}>
+                                        <div className={classes.card__image}>
+                                            <a href="/" target="_blank">
+                                                <img src="#" alt="pict"/>
                                             </a>
                                         </div>
-                                        <div class="card__content">
-                                            <a href="" target="_blank">
-                                                <h3 class="card__title">Ракетка для большого тенниса Triumph Pro ST</h3>
+                                        <div className={classes.card__content}>
+                                            <a href="/" target="_blank">
+                                                <h3 className={classes.card__title}>Ракетка для большого тенниса Triumph Pro ST</h3>
                                             </a>
-                                            <p class="card__price">2&nbsp;200&nbsp;₽</p>
-                                            <p class="card__place">Санкт Петербург</p>
-                                            <p class="card__date">Сегодня в&nbsp;10:45</p>
-                                        </div>
-                                    </div>
-                                </div>
-    
-                                <div class="cards__item">
-                                    <div class="cards__card card">
-                                        <div class="card__image">
-                                            <a href="" target="_blank">
-                                                <img src="#" alt="picture">
-                                            </a>
-                                        </div>
-                                        <div class="card__content">
-                                            <a href="" target="_blank">
-                                                <h3 class="card__title">Ракетка для большого тенниса Triumph Pro ST</h3>
-                                            </a>
-                                            <p class="card__price">2&nbsp;200&nbsp;₽</p>
-                                            <p class="card__place">Санкт Петербург</p>
-                                            <p class="card__date">Сегодня в&nbsp;10:45</p>
+                                            <p className={classes.card__price}>2&nbsp;200&nbsp;₽</p>
+                                            <p className={classes.card__place}>Санкт Петербург</p>
+                                            <p className={classes.card__date}>Сегодня в&nbsp;10:45</p>
                                         </div>
                                     </div>
                                 </div>
     
-                                <div class="cards__item">
-                                    <div class="cards__card card">
-                                        <div class="card__image">
-                                            <a href="" target="_blank">
-                                                <img src="#" alt="picture">
+                                <div className={classes.cards__item}>
+                                    <div className={classes.cards__card card}>
+                                        <div className={classes.card__image}>
+                                            <a href="/" target="_blank">
+                                                <img src="#" alt="pic"/>
                                             </a>
                                         </div>
-                                        <div class="card__content">
-                                            <a href="" target="_blank">
-                                                <h3 class="card__title">Ракетка для большого тенниса Triumph Pro ST</h3>
+                                        <div className={classes.card__content}>
+                                            <a href="/" target="_blank">
+                                                <h3 className={classes.card__title}>Ракетка для большого тенниса Triumph Pro ST</h3>
                                             </a>
-                                            <p class="card__price">2&nbsp;200&nbsp;₽</p>
-                                            <p class="card__place">Санкт Петербург</p>
-                                            <p class="card__date">Сегодня в&nbsp;10:45</p>
+                                            <p className={classes.card__price}>2&nbsp;200&nbsp;₽</p>
+                                            <p className={classes.card__place}>Санкт Петербург</p>
+                                            <p className={classes.card__date}>Сегодня в&nbsp;10:45</p>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div className={classes.cards__item}>
+                                    <div className={classes.cards__card card}>
+                                        <div className={classes.card__image}>
+                                            <a href="/" target="_blank">
+                                                <img src="#" alt="pic"/>
+                                            </a>
+                                        </div>
+                                        <div className={classes.card__content}>
+                                            <a href="/" target="_blank">
+                                                <h3 className={classes.card__title}>Ракетка для большого тенниса Triumph Pro ST</h3>
+                                            </a>
+                                            <p className={classes.card__price}>2&nbsp;200&nbsp;₽</p>
+                                            <p className={classes.card__place}>Санкт Петербург</p>
+                                            <p className={classes.card__date}>Сегодня в&nbsp;10:45</p>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div className={classes.cards__item}>
+                                    <div className={classes.cards__card card}>
+                                        <div className={classes.card__image}>
+                                            <a href="/" target="_blank">
+                                                <img src="#" alt="pic"/>
+                                            </a>
+                                        </div>
+                                        <div className={classes.card__content}>
+                                            <a href="/" target="_blank">
+                                                <h3 className={classes.card__title}>Ракетка для большого тенниса Triumph Pro ST</h3>
+                                            </a>
+                                            <p className={classes.card__price}>2&nbsp;200&nbsp;₽</p>
+                                            <p className={classes.card__place}>Санкт Петербург</p>
+                                            <p className={classes.card__date}>Сегодня в&nbsp;10:45</p>
                                         </div>
                                     </div>
                                 </div>                 
@@ -198,21 +182,21 @@ function ProfilePage() {
                     
                 </main>
                 
-                <footer class="footer">
-                    <div class="footer__container">
-                        <div class="footer__img">
-                            <a href="" target="_self">
-                                <img src="img/icon_01.png" alt="home">
+                <footer className={classes.footer}>
+                    <div className={classes.footer__container}>
+                        <div className={classes.footer__img}>
+                            <a href="/" target="_self">
+                                <img src="img/icon_01.png" alt="home"/>
                             </a>                        
                         </div>
-                        <div class="footer__img">
-                            <a href="" target="_self">
-                                <img src="img/icon_02.png" alt="home">
+                        <div className={classes.footer__img}>
+                            <a href="/" target="_self">
+                                <img src="img/icon_02.png" alt="home"/>
                             </a>
                         </div>
-                        <div class="footer__img">
-                            <a href="" target="_self">
-                                <img src="img/icon_03.png" alt="home">
+                        <div className={classes.footer__img}>
+                            <a href="/" target="_self">
+                                <img src="img/icon_03.png" alt="home"/>
                             </a>
                         </div>
                     </div>
@@ -221,26 +205,9 @@ function ProfilePage() {
             </div>
         </div>
     
-        <script src="js/script.js"></script>
+        {/* <script src="js/script.js"></script> */}
     </body>
     );
   }
   
-  export default ProfilePage;
-
-
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="css/profile.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200;8..144,300;8..144,400;8..144,700;8..144,800;8..144,900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <title>Skypro profile</title>
-</head>
-
-</html>
+export default ProfilePage;

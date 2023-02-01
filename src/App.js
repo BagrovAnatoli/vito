@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import ProfilePage from './pages/profile';
 
 function App() {

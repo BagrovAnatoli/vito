@@ -19,6 +19,51 @@ function ProfilePage() {
                                 </form>
                             </div>
                             <h2 className={classes.main__h2}>Здравствуйте, Антон!</h2>
+                            <div className={`${classes.main__profile} ${classes.profile}`}>
+                                <div className={classes.profile__content}>
+                                    <h3 className={`${classes.profile__title} ${classes.title}`}>Настройки профиля</h3>
+                                    <div className={`${classes.profile__settings} ${classes.settings}`}>
+                                        <div className={classes.settings__left}>
+                                            <div className={classes.settings__img}>
+                                                <a href="/" target="_self">
+                                                    <img src="#" alt="" />
+                                                </a>
+                                            </div>
+                                            <a className={classes['settings__change-photo']} href="/" target="_self">
+                                                Заменить
+                                            </a>
+                                        </div>
+                                        <div className={classes.settings__right}>
+                                            <form className={classes.settings__form} action="#">
+                                                <div className={classes.settings__div}>
+                                                    <label for="fname">Имя</label>
+                                                    <input className={classes['settings__f-name']} id="settings-fname" name="fname" type="text" value="Ан" placeholder="" />
+                                                </div>
+                            
+                                                <div className={classes.settings__div}>
+                                                    <label for="lname">Фамилия</label>
+                                                    <input className={classes['settings__l-name']} id="settings-lname" name="lname" type="text" value="Городецкий" placeholder="" />
+                                                </div>
+                            
+                                                <div className={classes.settings__div}>
+                                                    <label for="city">Город</label>
+                                                    <input className={classes.settings__city} id="settings-city" name="city" type="text" value="Санкт-Петербург" placeholder="" />
+                                                </div>
+                            
+                                                <div className={classes.settings__div}>
+                                                    <label for="phone">Телефон</label>
+                                                    <input className={classes.settings__phone} id="settings-phone" name="phone" type="tel" value="89161234567" placeholder="+79161234567" />
+                                                </div>
+                            
+                                                <button className={`${classes.settings__btn} ${classes['btn-hov02']}`} id="settings-btn">Сохранить</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 className={`${classes.main__title} ${classes.title}`}>
+                                Мои товары
+                            </h3>
                         </div>
                         <div className={classes.main__content}>
                             main__content

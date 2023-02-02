@@ -2,6 +2,8 @@ import React from 'react';
 import ClassesContext from './context';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
+import Logo from '../../components/logo';
+import Button from '../../components/button';
 import classes from './index.module.scss';
 
 function ProfilePage() {
@@ -14,11 +16,9 @@ function ProfilePage() {
                         <div className={classes.main__container}>
                             <div className={classes['main__center-block']}>
                                 <div className={`${classes.main__menu} ${classes.menu}`}>
-                                    <a className={classes['menu__logo-link']} href="/" target="_blank">
-                                        <img className={classes['menu__logo-img']} src="img/logo.png" alt="logo" />
-                                    </a>
+                                    <Logo />
                                     <form className={classes.menu__form} action="#">
-                                        <button className={`${classes.menu__btn} ${classes['btn-hov02']}`} id="btnGoBack">Вернуться на&nbsp;главную</button>
+                                        <Button id="btnGoBack">Вернуться на&nbsp;главную</Button>
                                     </form>
                                 </div>
                                 <h2 className={classes.main__h2}>Здравствуйте, Антон!</h2>

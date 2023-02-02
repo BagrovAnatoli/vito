@@ -1,5 +1,8 @@
-function Header(props) {
-    const { classes } = props;
+import React from 'react';
+import ClassesContext from '../pages/profile/context';
+
+function Header() {
+    const classes = React.useContext(ClassesContext);
     return (
         <header className={classes.header}>
             <nav className={classes.header__nav}>

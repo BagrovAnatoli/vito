@@ -1,5 +1,9 @@
-function Footer(props) {
-    const { classes } = props;
+import React from 'react';
+import ClassesContext from '../pages/profile/context';
+
+function Footer() {
+    const classes = React.useContext(ClassesContext);
+
     return (
         <footer className={classes.footer}>
             <div className={classes.footer__container}>

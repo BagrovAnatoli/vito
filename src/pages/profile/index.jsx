@@ -1,5 +1,5 @@
 import React from 'react';
-import ClassesContext from './context';
+import ClassesContext from '../context';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import Logo from '../../components/logo';

@@ -1,6 +1,6 @@
 import React from 'react';
 import ClassesContext from '../pages/context';
-import HeaderLogo from './headerLogo';
+// import HeaderLogo from './headerLogo';
 import HeaderButton from './headerButton';
 
 function Header() {

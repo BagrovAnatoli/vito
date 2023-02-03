@@ -3,7 +3,9 @@ import ClassesContext from '../context';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import Logo from '../../components/logo';
+import HeaderLogo from '../../components/headerLogo';
 import Button from '../../components/button';
+import HeaderButton from '../../components/headerButton';
 import Card from '../../components/card';
 import classes from './index.module.scss';
 
@@ -12,7 +14,15 @@ function ProfilePage() {
         <ClassesContext.Provider value={classes}>
             <div className={classes.wrapper}>
                 <div className={classes.container}>
-                    <Header />
+                    <Header>
+                        <HeaderLogo />
+                        <HeaderButton className={classes['header__btn-putAd']} id="btputAd">
+                            Разместить объявление
+                        </HeaderButton>
+                        <HeaderButton className={classes['header__btn-lk']} id="btnlk">
+                            Личный кабинет
+                        </HeaderButton>
+                    </Header>
                     <main className={classes.main}>
                         <div className={classes.main__container}>
                             <div className={classes['main__center-block']}>

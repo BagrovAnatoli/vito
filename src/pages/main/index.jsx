@@ -4,6 +4,7 @@ import Header from '../../components/header';
 import Footer from '../../components/footer';
 // import Logo from '../../components/logo';
 // import Button from '../../components/button';
+import HeaderButton from '../../components/headerButton';
 import Card from '../../components/card';
 import classes from './index.module.scss';
 
@@ -12,7 +13,11 @@ function MainPage() {
         <ClassesContext.Provider value={classes}>
             <div className={classes.wrapper}>
                 <div className={classes.container}>
-                    <Header />
+                    <Header>
+                        <HeaderButton className={classes['header__btn-main-enter']} id="btnMainEnter">
+                            Вход в личный кабинет
+                        </HeaderButton>
+                    </Header>
                     <main className={classes.main}>
                         <div className={`${classes.main__search} ${classes.search}`}>
                             <a className={classes['search__logo-link']} href="/" target="_blank">

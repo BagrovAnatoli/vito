@@ -8,7 +8,6 @@ import Card from '../../components/card';
 import classes from './index.module.scss';
 
 function MainPage() {
-    console.log(classes);
     return (
         <ClassesContext.Provider value={classes}>
             <div className={classes.wrapper}>

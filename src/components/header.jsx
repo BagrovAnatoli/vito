@@ -5,7 +5,6 @@ import HeaderButton from './headerButton';
 
 function Header() {
     const classes = React.useContext(ClassesContext);
-    console.log(classes);
     return (
         <header className={classes.header}>
             <nav className={classes.header__nav}>

@@ -5,7 +5,7 @@ import Footer from '../../components/footer';
 // import Logo from '../../components/logo';
 // import Button from '../../components/button';
 import HeaderButton from '../../components/headerButton';
-import Card from '../../components/card';
+import Cards from '../../components/cards';
 import classes from './index.module.scss';
 
 function MainPage() {
@@ -37,18 +37,7 @@ function MainPage() {
                             <h2 className={classes.main__h2}>Объявления</h2>
                             <div className={classes.main__content}>
                                 <div className={`${classes.content__cards} ${classes.cards}`}>
-
-                                    <Card />
-                                    <Card />
-                                    <Card />
-                                    <Card />
-                                    <Card />
-                                    <Card />
-                                    <Card />
-                                    <Card />
-                                    <Card />
-                                    <Card />
-
+                                    <Cards />
                                 </div>
                             </div>
                         </div>

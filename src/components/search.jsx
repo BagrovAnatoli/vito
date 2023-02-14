@@ -6,11 +6,16 @@ import ClassesContext from '../pages/context';
 function Search() {
     const classes = React.useContext(ClassesContext);
 
-    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    // const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-    const onSubmit = async (values) => {
-        await sleep(300);
-        window.alert(JSON.stringify(values, 0, 2));
+    // const onSubmit = async (values) => {
+    //     await sleep(300);
+    //     window.alert(JSON.stringify(values, 0, 2));
+    // };
+
+    const onSubmit = (values) => {
+        const value = values.search;
+        window.alert(value);
     };
 
     return (
@@ -23,11 +28,11 @@ function Search() {
             </a>
             <Form
               onSubmit={onSubmit}
-              render={({ handleSubmit }) => (
+              render={({ handleSubmit, values }) => (
                     <form className={classes.search__form} onSubmit={handleSubmit}>
                         <Field name="search" component="input" placeholder="Поиск по объявлениям" className={classes.search__text} type="search" />
-                        <Field name="search-mob" component="input" placeholder="Поиск" className={classes['search__text-mob']} type="search" />
                         <button className={`${classes.search__btn} ${classes['btn-hov02']}`} type="submit">Найти</button>
+                        <pre>{JSON.stringify(values, 0, 2)}</pre>
                     </form>
                 )}
             />

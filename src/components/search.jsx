@@ -1,14 +1,10 @@
 /* eslint-disable no-promise-executor-return */
 import React from 'react';
 import { Form, Field } from 'react-final-form';
-import { setAdsQueryAC } from '../store/actions/creators/ads';
 import { useDispatch } from 'react-redux';
+import { setAdsQueryAC } from '../store/actions/creators/ads';
 import ClassesContext from '../pages/context';
-import { ads } from '../api/stubData/ads';
-
-const getAdsByQuery = (query) => {
-    return [ads[0]];
-}
+// import { ads } from '../api/stubData/ads';
 
 function Search() {
     const classes = React.useContext(ClassesContext);
@@ -24,7 +20,7 @@ function Search() {
 
     const onSubmit = (values) => {
         const value = values.search;
-        // window.alert(JSON.stringify(getAdsByQuery(value), 0, 2));
+        window.alert(JSON.stringify(value, 0, 2));
         dispatch(setAdsQueryAC(value));
     };
 

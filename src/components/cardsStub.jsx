@@ -1,9 +1,10 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { adsQuerySelector,  adsFlteredByQuery } from '../store/selectors/ads';
+import { adsQuerySelector, adsFlteredByQuery } from '../store/selectors/ads';
 import { getAdsSuccessAC } from '../store/actions/creators/ads';
 import Card from './card';
-import { ads } from '../api/stubData/ads';
+import ads from '../api/stubData/ads';
 
 function Cards() {
     const dispatch = useDispatch();

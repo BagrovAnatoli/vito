@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import getAds from '../store/actions/thunks/ads';
-import { adsSelector, adsLoadingSelector, adsErrorSelector } from '../store/selectors/ads';
+import {
+ adsSelector, adsLoadingSelector, adsErrorSelector, adsQuerySelector, adsFlteredByQuery,
+} from '../store/selectors/ads';
 import Card from './card';
 
 function Cards() {
@@ -9,6 +11,8 @@ function Cards() {
     const ads = useSelector(adsSelector);
     const loading = useSelector(adsLoadingSelector);
     const error = useSelector(adsErrorSelector);
+    const query = useSelector(adsQuerySelector);
+    const filteredAds = useSelector(adsFlteredByQuery(query));
 
     console.log('ads');
     console.log(ads);
@@ -17,12 +21,14 @@ function Cards() {
         dispatch(getAds());
     }, []);
 
+    const adsForDisplay = filteredAds.length > 0 ? filteredAds : ads;
+
     return (
         <>
             { loading && <div>Загрузка</div> }
             { error && <div>{error.message}</div> }
-            { ads.length > 0
-                && ads.map((ad) => (
+            { adsForDisplay.length > 0
+                && adsForDisplay.map((ad) => (
                     <Card
                       title={ad.title}
                       price={ad.price}

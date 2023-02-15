@@ -1,10 +1,19 @@
 /* eslint-disable no-promise-executor-return */
 import React from 'react';
 import { Form, Field } from 'react-final-form';
+import { setAdsQueryAC } from '../store/actions/creators/ads';
+import { useDispatch } from 'react-redux';
 import ClassesContext from '../pages/context';
+import { ads } from '../api/stubData/ads';
+
+const getAdsByQuery = (query) => {
+    return [ads[0]];
+}
 
 function Search() {
     const classes = React.useContext(ClassesContext);
+
+    const dispatch = useDispatch();
 
     // const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -15,7 +24,8 @@ function Search() {
 
     const onSubmit = (values) => {
         const value = values.search;
-        window.alert(value);
+        // window.alert(JSON.stringify(getAdsByQuery(value), 0, 2));
+        dispatch(setAdsQueryAC(value));
     };
 
     return (

@@ -3,12 +3,14 @@ import {
     GET_ADS_START,
     GET_ADS_SUCCESS,
     GET_ADS_ERROR,
+    SET_QUERY,
 } from '../actions/types/ads';
 
 const initialState = {
     adsLoading: false,
     adsError: false,
     ads: [],
+    query: '',
 };
 
 export default function adsReducer(state = initialState, action) {
@@ -34,6 +36,13 @@ export default function adsReducer(state = initialState, action) {
                 ...state,
                 adsLoading: false,
                 adsError: action.error,
+            };
+        }
+
+        case SET_QUERY: {
+            return {
+                ...state,
+                query: action.query,
             };
         }
 

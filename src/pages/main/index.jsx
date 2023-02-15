@@ -6,7 +6,7 @@ import Footer from '../../components/footer';
 // import Logo from '../../components/logo';
 // import Button from '../../components/button';
 import HeaderButton from '../../components/headerButton';
-import Cards from '../../components/cards';
+import Cards from '../../components/cardsStub';
 import classes from './index.module.scss';
 
 function MainPage() {

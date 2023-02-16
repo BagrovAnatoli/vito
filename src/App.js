@@ -5,6 +5,7 @@ import ProtectedRoute from './components/protectedRoute';
 //   useRoutes,
 // } from 'react-router-dom';
 import MainPage from './pages/main';
+import ArticlePage from './pages/article';
 import ProfilePage from './pages/profile';
 import SellerProfilePage from './pages/sellerProfile';
 import NotFound from './pages/notFound';
@@ -12,11 +13,12 @@ import NotFound from './pages/notFound';
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<MainPage />} />
+      <Route path="/article/:id" element={<ArticlePage />} />
       <Route path="/seller-profile" element={<SellerProfilePage />} />
       <Route element={<ProtectedRoute redirectedPath="/" isAllowed />}>
         <Route path="/profile" element={<ProfilePage />} />
       </Route>
+      <Route path="/" element={<MainPage />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

@@ -77,7 +77,7 @@ function ArticlePage() {
                                         <div className={classes.article__info}>
                                             <p className={classes.article__date}>Сегодня в 10:45</p>
                                             <p className={classes.article__city}>Санкт-Петербург</p>
-                                            <a className={classes.article__link} href="/" target="_blank" rel="nofollow">23 отзыва</a>
+                                            <a className={classes.article__link} href="/" target="_blank" rel="noreferrer">23 отзыва</a>
                                         </div>
                                         <p className={classes.article__price}>2 200 ₽</p>
                                         <button className={`${classes.article__btn} ${classes['btn-hov02']}`}>Показать&nbsp;телефон

@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { fetchArticleById } from '../store/actions/thunks/ads';
 import { articleSelector, articleLoadingSelector, articleErrorSelector } from '../store/selectors/ads';
 import ClassesContext from '../pages/context';
+import ArticleButton from './articleButton';
 import BASE_URL from '../constants';
 
 function Article() {
@@ -81,9 +82,7 @@ function Article() {
                                             <p className={classes.article__city}>{article.user.city}</p>
                                         </div>
                                         <p className={classes.article__price}>{article.price}</p>
-                                        <button className={`${classes.article__btn} ${classes['btn-hov02']}`}>Показать&nbsp;телефон
-                                            <span>8&nbsp;905&nbsp;ХХХ&nbsp;ХХ&nbsp;ХХ</span>
-                                        </button>
+                                        <ArticleButton phone={article.user.phone} />
                                         <div className={`${classes.article__author} ${classes.author}`}>
                                             <div className={classes.author__img}>
                                                 <img src={`${BASE_URL}/${article.user.avatar}`} alt={article.user.name} />

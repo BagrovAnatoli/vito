@@ -3,6 +3,9 @@ import {
     GET_ADS_START,
     GET_ADS_SUCCESS,
     GET_ADS_ERROR,
+    GET_AD_BY_ID_START,
+    GET_AD_BY_ID_SUCCESS,
+    GET_AD_BY_ID_ERROR,
     SET_QUERY,
 } from '../actions/types/ads';
 
@@ -11,6 +14,9 @@ const initialState = {
     adsError: false,
     ads: [],
     query: '',
+    articleLoading: false,
+    articleError: false,
+    article: {},
 };
 
 export default function adsReducer(state = initialState, action) {
@@ -36,6 +42,30 @@ export default function adsReducer(state = initialState, action) {
                 ...state,
                 adsLoading: false,
                 adsError: action.error,
+            };
+        }
+
+        case GET_AD_BY_ID_START: {
+            return {
+                ...state,
+                articleLoading: true,
+            };
+        }
+
+        case GET_AD_BY_ID_SUCCESS: {
+            return {
+                ...state,
+                articleLoading: false,
+                articleError: false,
+                article: action.article,
+            };
+        }
+
+        case GET_AD_BY_ID_ERROR: {
+            return {
+                ...state,
+                articleLoading: false,
+                articleError: action.error,
             };
         }
 

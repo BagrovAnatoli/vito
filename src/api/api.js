@@ -9,6 +9,9 @@ export const adsAPI = {
     getAds() {
         return instance.get('/ads');
     },
+    getAdById(pk) {
+        return instance.get(`/ads/${pk}`);
+    },
 };
 
 export const imagesAPI = {

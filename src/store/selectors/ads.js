@@ -6,6 +6,12 @@ export const adsLoadingSelector = (store) => storeAdsSelector(store).adsLoading;
 
 export const adsErrorSelector = (store) => storeAdsSelector(store).adsError;
 
+export const articleSelector = (store) => storeAdsSelector(store).article;
+
+export const articleLoadingSelector = (store) => storeAdsSelector(store).articleLoading;
+
+export const articleErrorSelector = (store) => storeAdsSelector(store).articleError;
+
 export const adsQuerySelector = (store) => storeAdsSelector(store).query;
 
 export const adsFlteredByQuery = (query) => (store) => adsSelector(store).filter((ad) => {

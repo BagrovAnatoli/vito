@@ -2,11 +2,14 @@ import {
     getAdsStartAC,
     getAdsSuccessAC,
     getAdsErrorAC,
+    getAdByIdStartAC,
+    getAdByIdSuccessAC,
+    getAdByIdErrorAC,
 } from '../creators/ads';
 
 import { adsAPI } from '../../../api/api';
 
-const getAds = () => async (dispatch) => {
+export const getAds = () => async (dispatch) => {
     console.log('getAdsThunk');
 
     dispatch(getAdsStartAC());
@@ -21,4 +24,17 @@ const getAds = () => async (dispatch) => {
     }
 };
 
-export default getAds;
+export const fetchArticleById = (id) => async (dispatch) => {
+    console.log('fetchArticle thunk');
+
+    dispatch(getAdByIdStartAC());
+
+    try {
+        const response = await adsAPI.getAdById(id);
+        // console.log(response);
+        dispatch(getAdByIdSuccessAC(response.data));
+    } catch (error) {
+        // console.log(error);
+        dispatch(getAdByIdErrorAC(error));
+    }
+};

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import getAds from '../store/actions/thunks/ads';
+import { getAds } from '../store/actions/thunks/ads';
 import {
  adsSelector, adsLoadingSelector, adsErrorSelector, adsQuerySelector, adsFlteredByQuery,
 } from '../store/selectors/ads';

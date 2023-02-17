@@ -20,9 +20,6 @@ function Card({
                     <Link to={`/article/${id}`} rel="noreferrer">
                         <h3 className={classes.card__title}>{title}</h3>
                     </Link>
-                    {/* <a href={`article/${id}`} target="_blank" rel="noreferrer">
-                        <h3 className={classes.card__title}>{title}</h3>
-                    </a> */}
                     <p className={classes.card__price}>{price}&nbsp;₽</p>
                     <p className={classes.card__place}>{city}</p>
                     <p className={classes.card__date}>{createdOn}</p>

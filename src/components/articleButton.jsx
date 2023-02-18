@@ -9,6 +9,15 @@ function ArticleButton({ phone }) {
 
     const clickHandler = () => setStatusButton('displayed');
 
+    if (!phone) {
+        return (
+            <button
+              className={`${classes.article__btn} ${classes['btn-hov02']}`}
+            >Связаться с продавцом
+            </button>
+        );
+    }
+
     return (
         <>
             {statusButton === 'secret'

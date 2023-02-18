@@ -73,8 +73,15 @@ div {
     background-color: #0080C1;
 }
 
-.article__fill-img {    
-    &:hover::before {        
+// .article__fill-img {    
+//     &:hover::before {        
+//         border-top: 2px solid #0080C1;
+//         border-left: 2px solid #0080C1;        
+//     }
+// }
+
+.article__img-bar-div {    
+    &:hover {        
         border-top: 2px solid #0080C1;
         border-left: 2px solid #0080C1;        
     }

@@ -346,6 +346,25 @@ div {
          }      
     }
 
+    &__a {
+        background-color: #009EE4;
+        border-radius: 6px;
+        border: 1px solid #009EE4;
+        width: 214px;
+        height: 62px;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 62px;
+        text-align: center;
+        color: #FFFFFF;
+        font-family: 'Roboto', sans-serif;
+         & span {
+            display: block;
+            font-size: 14px;
+            font-weight: 400;
+         }      
+    }
+
     &__author {
         margin-top: 34px;
         margin-bottom: 20px;

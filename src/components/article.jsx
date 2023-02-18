@@ -42,7 +42,7 @@ function Article() {
                         <div className={`${classes.main__artic} ${classes.artic}`}>
                             <div className={`${classes.artic__content} ${classes.article}`}>
                                 <div className={classes.article__left}>
-                                    <ArticleImages />
+                                    <ArticleImages images={article.images} />
                                 </div>
                                 <div className={classes.article__right}>
                                     <div className={classes.article__block}>

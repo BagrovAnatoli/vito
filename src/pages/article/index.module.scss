@@ -648,7 +648,18 @@ div {
 
             & span {
                 font-size: 12px;
+            }
+        }
 
+        &__a {
+            width: 100%;
+            height: 57px;
+            font-size: 14px;
+            line-height: 57px;
+            color: #FFFFFF;
+
+            & span {
+                font-size: 12px;
             }
         }
 

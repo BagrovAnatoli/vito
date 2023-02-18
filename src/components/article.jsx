@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { fetchArticleById } from '../store/actions/thunks/ads';
 import { articleSelector, articleLoadingSelector, articleErrorSelector } from '../store/selectors/ads';
 import ClassesContext from '../pages/context';
+import ArticleImages from './articleImages';
 import ArticleButton from './articleButton';
 import BASE_URL from '../constants';
 
@@ -41,38 +42,7 @@ function Article() {
                         <div className={`${classes.main__artic} ${classes.artic}`}>
                             <div className={`${classes.artic__content} ${classes.article}`}>
                                 <div className={classes.article__left}>
-                                    <div className={classes['article__fill-img']}>
-                                        <div className={classes.article__img}>
-                                                <img src="/" alt="photoOfGood" />
-                                        </div>
-                                        <div className={classes['article__img-bar']}>
-                                            <div className={classes['article__img-bar-div']}>
-                                                <img src="/" alt="photoOfGood" />
-                                            </div>
-                                            <div className={classes['article__img-bar-div']}>
-                                                <img src="/" alt="photoOfGood" />
-                                            </div>
-                                            <div className={classes['article__img-bar-div']}>
-                                                <img src="/" alt="photoOfGood" />
-                                            </div>
-                                            <div className={classes['article__img-bar-div']}>
-                                                <img src="/" alt="photoOfGood" />
-                                            </div>
-                                            <div className={classes['article__img-bar-div']}>
-                                                <img src="/" alt="photoOfGood" />
-                                            </div>
-                                            <div className={classes['article__img-bar-div']}>
-                                                <img src="/" alt="photoOfGood" />
-                                            </div>
-                                        </div>
-                                        <div className={`${classes['article__img-bar-mob']} ${classes['img-bar-mob']}`}>
-                                            <div className={`${classes['img-bar-mob__circle']} ${classes['circle-active']}`}></div>
-                                            <div className={classes['img-bar-mob__circle']}></div>
-                                            <div className={classes['img-bar-mob__circle']}></div>
-                                            <div className={classes['img-bar-mob__circle']}></div>
-                                            <div className={classes['img-bar-mob__circle']}></div>
-                                        </div>
-                                    </div>
+                                    <ArticleImages />
                                 </div>
                                 <div className={classes.article__right}>
                                     <div className={classes.article__block}>

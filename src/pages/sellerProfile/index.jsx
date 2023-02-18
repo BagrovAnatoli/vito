@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import ClassesContext from '../context';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
@@ -10,6 +11,10 @@ import Card from '../../components/card';
 import classes from './index.module.scss';
 
 function SellerProfilePage() {
+    const urlParams = useParams();
+    const userId = Number(urlParams.id);
+    alert(userId);
+
     return (
         <ClassesContext.Provider value={classes}>
             <div className={classes.wrapper}>

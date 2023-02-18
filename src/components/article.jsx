@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { fetchArticleById } from '../store/actions/thunks/ads';
 import { articleSelector, articleLoadingSelector, articleErrorSelector } from '../store/selectors/ads';
 import ClassesContext from '../pages/context';
@@ -58,7 +57,9 @@ function Article() {
                                                 <img src={`${BASE_URL}/${article.user.avatar}`} alt={article.user.name} />
                                             </div>
                                             <div className={classes.author__cont}>
-                                                <p className={classes.author__name}>{article.user.name}</p>
+                                                <Link to={`/seller-profile/${article.user.id}`}>
+                                                    <p className={classes.author__name}>{article.user.name}</p>
+                                                </Link>
                                                 <p className={classes.author__about}>Продает товары с {article.user.sells_from}</p>
                                             </div>
                                         </div>

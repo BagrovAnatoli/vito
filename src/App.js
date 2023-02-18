@@ -14,7 +14,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/article/:id" element={<ArticlePage />} />
-      <Route path="/seller-profile" element={<SellerProfilePage />} />
+      <Route path="/seller-profile/:id" element={<SellerProfilePage />} />
       <Route element={<ProtectedRoute redirectedPath="/" isAllowed />}>
         <Route path="/profile" element={<ProfilePage />} />
       </Route>

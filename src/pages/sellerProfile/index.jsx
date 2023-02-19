@@ -1,4 +1,5 @@
-import React from 'react';
+// import React, { useEffect } from 'react';
+// import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import ClassesContext from '../context';
 import Header from '../../components/header';
@@ -13,7 +14,11 @@ import classes from './index.module.scss';
 function SellerProfilePage() {
     const urlParams = useParams();
     const userId = Number(urlParams.id);
-    alert(userId);
+    console.log(userId);
+
+    // useEffect(() => {
+    //     dispatch();
+    // }, []);
 
     return (
         <ClassesContext.Provider value={classes}>
@@ -33,7 +38,7 @@ function SellerProfilePage() {
                             <div className={classes['main__center-block']}>
                                 <div className={`${classes.main__menu} ${classes.menu}`}>
                                     <Logo />
-                                    <form className={classes.menu__form} action="#">
+                                    <form className={classes.menu__form} action="/">
                                         <Button id="btnGoBack">Вернуться на&nbsp;главную</Button>
                                     </form>
                                 </div>

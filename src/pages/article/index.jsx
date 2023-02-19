@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 // import { useParams } from 'react-router-dom';
 import ClassesContext from '../context';
 import Header from '../../components/header';
@@ -29,10 +28,8 @@ function ArticlePage() {
                                 <a className={classes['menu__logo-link']} href="/" target="_blank">
                                     <img className={classes['menu__logo-img']} src="/img/logo.png" alt="logo" />
                                 </a>
-                                <form className={classes.menu__form} action="#">
-                                    <Link to="/">
-                                        <button className={`${classes['menu__btn-serch']} ${classes['btn-hov02']}`} id="btnGoBack">Вернуться на главную</button>
-                                    </Link>
+                                <form className={classes.menu__form} action="/">
+                                    <button className={`${classes['menu__btn-serch']} ${classes['btn-hov02']}`} id="btnGoBack">Вернуться на главную</button>
                                 </form>
                             </div>
                         </div>

@@ -1,6 +1,8 @@
 /* eslint-disable camelcase */
 import axios from 'axios';
 import BASE_URL from '../constants';
+import filterParams from './filterParams';
+import generateQueryString from './generateQueryString';
 
 const instance = axios.create({
     baseURL: BASE_URL,
@@ -13,19 +15,17 @@ const defaultGetParams = {
 };
 
 export const adsAPI = {
-    getAds({ userId, sorting, page } = defaultGetParams) {
-        // getAds() {
-        // return instance.get('/ads', { params: { user_id: userId, sorting, page } });
-        return instance.get(`/ads?user_id=${userId}&sorting=${sorting}&page=${page}`);
-        // return instance.get(`/ads`);
+    getAds(parameters) {
+        const params = filterParams(parameters);
+        return instance.get('/ads', { params });
     },
     getAdById(pk) {
         return instance.get(`/ads/${pk}`);
     },
-    createAd({
-        title = '', description = '', price = '', file,
-    }) {
-        return instance.post(`/ads?title=${title}&description=${description}&price=${price}`, file);
+    createAd(parameters, file) {
+        const params = filterParams(parameters);
+        const queryString = generateQueryString(params);
+        return instance.post(`/ads${queryString}`, file);
     },
     deleteAdById(pk) {
         return instance.delete(`/ads/${pk}`);

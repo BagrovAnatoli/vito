@@ -16,10 +16,10 @@ export const getAds = () => async (dispatch) => {
 
     try {
         const response = await adsAPI.getAds();
-        // console.log(response);
+        console.log(response);
         dispatch(getAdsSuccessAC(response.data));
     } catch (error) {
-        // console.log(error);
+        console.log(error);
         dispatch(getAdsErrorAC(error));
     }
 };

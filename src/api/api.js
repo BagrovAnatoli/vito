@@ -6,9 +6,18 @@ const instance = axios.create({
     baseURL: BASE_URL,
 });
 
+const defaultGetParams = {
+    userId: '',
+    sorting: '',
+    page: '',
+};
+
 export const adsAPI = {
-    getAds({ userId, sorting, page }) {
-        return instance.get('/ads', { params: { user_id: userId, sorting, page } });
+    getAds({ userId, sorting, page } = defaultGetParams) {
+        // getAds() {
+        // return instance.get('/ads', { params: { user_id: userId, sorting, page } });
+        return instance.get(`/ads?user_id=${userId}&sorting=${sorting}&page=${page}`);
+        // return instance.get(`/ads`);
     },
     getAdById(pk) {
         return instance.get(`/ads/${pk}`);

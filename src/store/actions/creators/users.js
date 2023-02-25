@@ -2,6 +2,9 @@ import {
     GET_CURRENT_USER_START,
     GET_CURRENT_USER_SUCCESS,
     GET_CURRENT_USER_ERROR,
+    GET_ALL_USERS_START,
+    GET_ALL_USERS_SUCCESS,
+    GET_ALL_USERS_ERROR,
     EDIT_CURRENT_USER_START,
     EDIT_CURRENT_USER_SUCCESS,
     EDIT_CURRENT_USER_ERROR,
@@ -26,6 +29,20 @@ export const getCurrentUserSuccessAC = () => ({
 
 export const getCurrentUserErrorAC = () => ({
     type: GET_CURRENT_USER_ERROR,
+});
+
+export const getAllUsersStartAC = () => ({
+    type: GET_ALL_USERS_START,
+});
+
+export const getAllUsersSuccessAC = (users) => ({
+    type: GET_ALL_USERS_SUCCESS,
+    users,
+});
+
+export const getAllUsersErrorAC = (error) => ({
+    type: GET_ALL_USERS_ERROR,
+    error,
 });
 
 export const editCurrentUserStartAC = () => ({

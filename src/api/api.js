@@ -15,7 +15,7 @@ const defaultGetParams = {
 };
 
 export const adsAPI = {
-    getAds(parameters) {
+    getAds(parameters = defaultGetParams) {
         const params = filterParams(parameters);
         return instance.get('/ads', { params });
     },

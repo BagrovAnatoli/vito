@@ -18,60 +18,60 @@ import {
 
 export const getCurrentUserStartAC = () => ({
     type: GET_CURRENT_USER_START,
-})
+});
 
 export const getCurrentUserSuccessAC = () => ({
     type: GET_CURRENT_USER_SUCCESS,
-})
+});
 
-export const getCurrentUserErrorAC = () =>({
+export const getCurrentUserErrorAC = () => ({
     type: GET_CURRENT_USER_ERROR,
-})
+});
 
-export const editCurrentUserStartAC = () =>({
+export const editCurrentUserStartAC = () => ({
     type: EDIT_CURRENT_USER_START,
-})
+});
 
-export const editCurrentUserSuccessAC = () =>({
+export const editCurrentUserSuccessAC = () => ({
     type: EDIT_CURRENT_USER_SUCCESS,
-})
+});
 
-export const editCurrentUserErrorAC = () =>({
+export const editCurrentUserErrorAC = () => ({
     type: EDIT_CURRENT_USER_ERROR,
-})
+});
 
-export const getUsersStartAC = () =>({
+export const getUsersStartAC = () => ({
     type: GET_USERS_START,
-})
+});
 
-export const getUsersSuccessAC = () =>({
+export const getUsersSuccessAC = () => ({
     type: GET_USERS_SUCCESS,
-})
+});
 
-export const getUsersErrorAC = () =>({
+export const getUsersErrorAC = () => ({
     type: GET_USERS_ERROR,
-})
+});
 
-export const editPasswordStartAC = () =>({
+export const editPasswordStartAC = () => ({
     type: EDIT_PASSWORD_START,
-})
+});
 
-export const editPasswordSuccessAC = () =>({
+export const editPasswordSuccessAC = () => ({
     type: EDIT_PASSWORD_SUCCESS,
-})
+});
 
-export const editPasswordErrorAC = () =>({
+export const editPasswordErrorAC = () => ({
     type: EDIT_PASSWORD_ERROR,
-})
+});
 
-export const uploadAvatarStartAC = () =>({
+export const uploadAvatarStartAC = () => ({
     type: UPLOAD_AVATAR_START,
-})
+});
 
-export const uploadAvatarSuccessAC = () =>({
+export const uploadAvatarSuccessAC = () => ({
     type: UPLOAD_AVATAR_SUCCESS,
-})
+});
 
-export const uploadAvatarErrorAC = () =>({
+export const uploadAvatarErrorAC = () => ({
     type: UPLOAD_AVATAR_ERROR,
-})
+});

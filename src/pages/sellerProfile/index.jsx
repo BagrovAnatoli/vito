@@ -8,7 +8,7 @@ import Logo from '../../components/logo';
 import HeaderLogo from '../../components/headerLogo';
 import Button from '../../components/button';
 import HeaderButton from '../../components/headerButton';
-import Card from '../../components/card';
+import Cards from '../../components/cards';
 import classes from './index.module.scss';
 
 function SellerProfilePage() {
@@ -77,14 +77,7 @@ function SellerProfilePage() {
                             </div>
                             <div className={classes.main__content}>
                                 <div className={`${classes.content__cards} ${classes.cards}`}>
-
-                                    <Card />
-                                    <Card />
-                                    <Card />
-                                    <Card />
-                                    <Card />
-                                    <Card />
-
+                                    <Cards />
                                 </div>
                             </div>
                         </div>

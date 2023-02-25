@@ -1,0 +1,101 @@
+[
+    {
+        "id": 1,
+        "name": "Иван",
+        "email": "user1@example.com",
+        "city": "Мюнхен",
+        "avatar": "avatar_images/b39347d3-d0a5-4d8a-be6f-7f3d3088a68d.png",
+        "sells_from": "2022-12-04",
+        "phone": "+49 1111111111",
+        "role": "user",
+        "surname": "Конопатов"
+    },
+    {
+        "id": 2,
+        "name": "James",
+        "email": "james@example.com",
+        "city": "Брисбен, Австралия",
+        "avatar": "avatar_images/41f4421c-e3a5-4cfe-9eeb-761fba402f1a.png",
+        "sells_from": "2022-12-04",
+        "phone": "+61 7 4444 4444",
+        "role": "user",
+        "surname": "Fern"
+    },
+    {
+        "id": 3,
+        "name": "Наташа",
+        "email": "nata@example.com",
+        "city": "Москва",
+        "avatar": "avatar_images/c9331a32-40a6-4179-b2c1-c6a0183fa342.png",
+        "sells_from": "2022-12-05",
+        "phone": "89167777777",
+        "role": "user",
+        "surname": null
+    },
+    {
+        "id": 4,
+        "name": "Катя",
+        "email": "katya@example.com",
+        "city": "Москва",
+        "avatar": "avatar_images/917f345b-b092-4b32-b287-646a88a9b549.png",
+        "sells_from": "2022-12-31",
+        "phone": "+77777777777",
+        "role": "user",
+        "surname": null
+    },
+    {
+        "id": 5,
+        "name": "Лиза",
+        "email": "liza@example.com",
+        "city": "",
+        "avatar": null,
+        "sells_from": null,
+        "phone": null,
+        "role": "user",
+        "surname": ""
+    },
+    {
+        "id": 6,
+        "name": "",
+        "email": "petr@example.com",
+        "city": "",
+        "avatar": null,
+        "sells_from": null,
+        "phone": null,
+        "role": "user",
+        "surname": ""
+    },
+    {
+        "id": 7,
+        "name": "",
+        "email": "jane@example.com",
+        "city": "",
+        "avatar": null,
+        "sells_from": null,
+        "phone": null,
+        "role": "user",
+        "surname": ""
+    },
+    {
+        "id": 8,
+        "name": "Сара",
+        "email": "sarah@example.com",
+        "city": "Иерусалим",
+        "avatar": "avatar_images/4ea964b8-4b06-446d-bba3-bdee9b0ba225.png",
+        "sells_from": "2023-01-03",
+        "phone": null,
+        "role": "user",
+        "surname": ""
+    },
+    {
+        "id": 9,
+        "name": "Маша",
+        "email": "masha@example.com",
+        "city": "Los Angeles",
+        "avatar": null,
+        "sells_from": "2023-01-06",
+        "phone": "+1 213 2222 22 22",
+        "role": "user",
+        "surname": ""
+    }
+]

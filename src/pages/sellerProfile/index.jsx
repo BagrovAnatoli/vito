@@ -8,6 +8,7 @@ import Logo from '../../components/logo';
 import HeaderLogo from '../../components/headerLogo';
 import Button from '../../components/button';
 import HeaderButton from '../../components/headerButton';
+import PhoneButton from '../../components/phoneButton';
 // import Cards from '../../components/cards';
 import classes from './index.module.scss';
 
@@ -76,9 +77,10 @@ function SellerProfilePage() {
                                                                 </a>
                                                             </div>
                                                         </div>
-                                                        <button className={`${classes.seller__btn} ${classes['btn-hov02']}`}>Показать&nbsp;телефон
+                                                        {/* <button className={`${classes.seller__btn} ${classes['btn-hov02']}`}>Показать&nbsp;телефон
                                                             <span>8&nbsp;905&nbsp;ХХХ&nbsp;ХХ&nbsp;ХХ</span>
-                                                        </button>
+                                                        </button> */}
+                                                        <PhoneButton phone={user.phone} className={classes.seller__btn}/>
                                                     </div>
                                                 </div>
                                             </div>

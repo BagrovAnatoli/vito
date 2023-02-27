@@ -6,6 +6,7 @@ import { articleSelector, articleLoadingSelector, articleErrorSelector } from '.
 import ClassesContext from '../pages/context';
 import ArticleImages from './articleImages';
 import ArticleButton from './articleButton';
+import PhoneButton from './phoneButton';
 import BASE_URL from '../constants';
 
 function Article() {
@@ -52,6 +53,7 @@ function Article() {
                                         </div>
                                         <p className={classes.article__price}>{article.price}</p>
                                         <ArticleButton phone={article.user.phone} />
+                                        <PhoneButton phone={article.user.phone} className={classes.article__btn}/>
                                         <div className={`${classes.article__author} ${classes.author}`}>
                                             <div className={classes.author__img}>
                                                 <img src={`${BASE_URL}/${article.user.avatar}`} alt={article.user.name} />

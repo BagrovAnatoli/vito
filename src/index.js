@@ -8,7 +8,7 @@ import App from './App';
 
 window.store = store;
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('app-root'));
 root.render(
   <React.StrictMode>
     <Router>

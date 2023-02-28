@@ -15,6 +15,9 @@ import classes from './index.module.scss';
 import { getAllUsers } from '../../store/actions/thunks/users';
 import { usersLoadingSelector, usersErrorSelector, userByIdSelector } from '../../store/selectors/users';
 
+import Modal from '../../components/Modal';
+import Login from '../../components/Login/login';
+
 function SellerProfilePage() {
     const urlParams = useParams();
     const userId = Number(urlParams.id);
@@ -100,6 +103,9 @@ function SellerProfilePage() {
                     <Footer />
                 </div>
             </div>
+            <Modal>
+                <Login />
+            </Modal>
         </ClassesContext.Provider>
     );
 }

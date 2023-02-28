@@ -5,8 +5,7 @@ import { fetchArticleById } from '../store/actions/thunks/ads';
 import { articleSelector, articleLoadingSelector, articleErrorSelector } from '../store/selectors/ads';
 import ClassesContext from '../pages/context';
 import ArticleImages from './articleImages';
-import ArticleButton from './articleButton';
-import PhoneButton from './phoneButton';
+import PhoneButton from './phoneButton/phoneButton';
 import BASE_URL from '../constants';
 
 function Article() {
@@ -52,8 +51,7 @@ function Article() {
                                             <p className={classes.article__city}>{article.user.city}</p>
                                         </div>
                                         <p className={classes.article__price}>{article.price}</p>
-                                        <ArticleButton phone={article.user.phone} />
-                                        <PhoneButton phone={article.user.phone} className={classes.article__btn}/>
+                                        <PhoneButton phone={article.user.phone} />
                                         <div className={`${classes.article__author} ${classes.author}`}>
                                             <div className={classes.author__img}>
                                                 <img src={`${BASE_URL}/${article.user.avatar}`} alt={article.user.name} />

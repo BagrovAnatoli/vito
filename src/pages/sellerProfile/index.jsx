@@ -9,7 +9,7 @@ import HeaderLogo from '../../components/headerLogo';
 import Button from '../../components/button';
 import HeaderButton from '../../components/headerButton';
 import PhoneButton from '../../components/phoneButton';
-// import Cards from '../../components/cards';
+import Cards from '../../components/cards';
 import classes from './index.module.scss';
 
 import { getAllUsers } from '../../store/actions/thunks/users';
@@ -92,7 +92,7 @@ function SellerProfilePage() {
                             </div>
                             <div className={classes.main__content}>
                                 <div className={`${classes.content__cards} ${classes.cards}`}>
-                                    {/* <Cards /> */}
+                                    <Cards />
                                 </div>
                             </div>
                         </div>

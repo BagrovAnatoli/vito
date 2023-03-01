@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable camelcase */
 import axios from 'axios';
 import BASE_URL from '../constants';
@@ -110,5 +111,29 @@ export const userAPI = {
     },
     setAvatar(file) {
         return instance.post('/user/avatar', file);
+    },
+};
+
+export const authAPI = {
+    register(userData) {
+        const body = {};
+        if (!userData.email || !userData.password) return;
+        body.email = userData.email;
+        body.password = userData.password;
+        body.name = userData.name || '';
+        body.surname = userData.surname || '';
+        body.role = userData.role || '';
+        body.phone = userData.phone || '';
+        body.city = userData.city || '';
+        if (userData.id) {
+            body.id = userData.id;
+        }
+        return instance.post('/auth/register', body);
+    },
+    login({ email, password }) {
+        return instance.post('/auth/login', { email, password });
+    },
+    refresh({ accessToken, refreshToken }) {
+        return instance.put('/auth/login', { accessToken, refreshToken });
     },
 };

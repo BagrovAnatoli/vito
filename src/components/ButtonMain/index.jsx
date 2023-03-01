@@ -1,9 +1,12 @@
+/* eslint-disable react/jsx-props-no-spreading */
+import cn from 'classnames';
 import Button from '../Button/index';
 
-import cn from 'classnames';
 import classes from './index.module.css';
 
-const ButtonMain = ({ colorBtn, content, btnClassName, ...attrs }) => {
+function ButtonMain({
+ colorBtn, content, btnClassName, ...attrs
+}) {
   const color = colorBtn === 'white' ? 'white' : 'violet';
 
   return (

@@ -16,7 +16,7 @@ import { getAllUsers } from '../../store/actions/thunks/users';
 import { usersLoadingSelector, usersErrorSelector, userByIdSelector } from '../../store/selectors/users';
 
 import Modal from '../../components/Modal';
-import Login from '../../components/Login/login';
+import Login from '../../components/Login/index';
 
 function SellerProfilePage() {
     const urlParams = useParams();
@@ -31,8 +31,8 @@ function SellerProfilePage() {
     const error = useSelector(usersErrorSelector);
 
     const toggleModal = () => {
-        setModalVisible(!isModalVisible)
-      }
+        setModalVisible(!isModalVisible);
+    };
 
     useEffect(() => {
         dispatch(getAllUsers());
@@ -109,8 +109,8 @@ function SellerProfilePage() {
                     <Footer />
                 </div>
             </div>
-            {isModalVisible &&
-            (
+            {isModalVisible
+            && (
                 <Modal onClick={toggleModal}>
                     <Login />
                 </Modal>

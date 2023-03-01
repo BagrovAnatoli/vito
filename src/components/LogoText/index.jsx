@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 
-import LogoIcon from '../LogoIcon2';
-
 import cn from 'classnames';
+import LogoIcon from '../LogoIcon';
+
 import classes from './index.module.css';
 
-const Logo = ({ colorLogo, className }) => {
+function Logo({ colorLogo, className }) {
   const color = colorLogo === 'white' ? 'white' : 'black';
 
   return (

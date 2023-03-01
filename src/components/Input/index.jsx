@@ -1,6 +1,6 @@
 import classes from './index.module.scss';
 
-const Input = ({ type, placeholder }) => {
+function Input({ type, placeholder }) {
   return (
     <>
       <input

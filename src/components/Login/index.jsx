@@ -6,7 +6,7 @@ import Input from '../Input';
 
 const LoginModal = () => (
     // <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
-    <form className={classes.form} >
+    <form className={classes.form}>
       <Logo className={classes.logo} />
       <div className={classes.inputs}>
         <Input type="text" name="login" placeholder="логин" />
@@ -14,10 +14,10 @@ const LoginModal = () => (
         <Input type="password" name="password" placeholder="парроль" />
       </div>
       <div className={classes.buttons}>
-        <ButtonMain type="submit" content='Войти' />
+        <ButtonMain type="submit" content="Войти" />
         <ButtonMain
           content="Зарегистрироваться"
-          colorBtn={'white'}
+          colorBtn="white"
         //   onClick={showSignup}
         />
         {/* {error && <div className={classes.message}>{error}</div>} */}

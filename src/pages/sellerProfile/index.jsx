@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import ClassesContext from '../context';
@@ -8,22 +8,31 @@ import Logo from '../../components/logo';
 import HeaderLogo from '../../components/headerLogo';
 import Button from '../../components/button';
 import HeaderButton from '../../components/headerButton';
-import PhoneButton from '../../components/phoneButton';
 import Cards from '../../components/cards';
+import PhoneButton from '../../components/phoneButton/phoneButton';
 import classes from './index.module.scss';
 
 import { getAllUsers } from '../../store/actions/thunks/users';
 import { usersLoadingSelector, usersErrorSelector, userByIdSelector } from '../../store/selectors/users';
+
+import Modal from '../../components/Modal';
+import Login from '../../components/Login/login';
 
 function SellerProfilePage() {
     const urlParams = useParams();
     const userId = Number(urlParams.id);
     console.log(userId);
 
+    const [isModalVisible, setModalVisible] = useState(true);
+
     const dispatch = useDispatch();
     const user = useSelector(userByIdSelector(userId));
     const loading = useSelector(usersLoadingSelector);
     const error = useSelector(usersErrorSelector);
+
+    const toggleModal = () => {
+        setModalVisible(!isModalVisible)
+      }
 
     useEffect(() => {
         dispatch(getAllUsers());
@@ -80,7 +89,7 @@ function SellerProfilePage() {
                                                         {/* <button className={`${classes.seller__btn} ${classes['btn-hov02']}`}>Показать&nbsp;телефон
                                                             <span>8&nbsp;905&nbsp;ХХХ&nbsp;ХХ&nbsp;ХХ</span>
                                                         </button> */}
-                                                        <PhoneButton phone={user.phone} className={classes.seller__btn}/>
+                                                        <PhoneButton phone={user.phone} />
                                                     </div>
                                                 </div>
                                             </div>
@@ -100,6 +109,12 @@ function SellerProfilePage() {
                     <Footer />
                 </div>
             </div>
+            {isModalVisible &&
+            (
+                <Modal onClick={toggleModal}>
+                    <Login />
+                </Modal>
+            )}
         </ClassesContext.Provider>
     );
 }

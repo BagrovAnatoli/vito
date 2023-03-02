@@ -3,6 +3,12 @@ import {
     loginStartAC,
     loginSuccessAC,
     loginErrorAC,
+    registerStartAC,
+    registerSuccessAC,
+    registerErrorAC,
+    refreshStartAC,
+    refreshSuccessAC,
+    refreshErrorAC,
 } from '../creators/auth';
 
 import { authAPI } from '../../../api/api';
@@ -18,5 +24,33 @@ export const login = ({ email, password }) => async (dispatch) => {
     } catch (error) {
         console.log(error);
         dispatch(loginErrorAC(error));
+    }
+};
+
+export const register = (userData) => async (dispatch) => {
+    console.log('registerThunk');
+    dispatch(registerStartAC());
+
+    try {
+        const response = await authAPI.register(userData);
+        console.log(response);
+        dispatch(registerSuccessAC(response.data));
+    } catch (error) {
+        console.log(error);
+        dispatch(registerErrorAC(error));
+    }
+};
+
+export const refresh = ({ accessToken, refreshToken }) => async (dispatch) => {
+    console.log('refreshThunk');
+    dispatch(refreshStartAC());
+
+    try {
+        const response = await authAPI.refresh({ accessToken, refreshToken });
+        console.log(response);
+        dispatch(refreshSuccessAC(response.data));
+    } catch (error) {
+        console.log(error);
+        dispatch(refreshErrorAC(error));
     }
 };

@@ -1,3 +1,4 @@
+/* eslint-disable default-param-last */
 import {
     LOGIN_START,
     LOGIN_SUCCESS,
@@ -8,7 +9,7 @@ import {
     REFRESH_START,
     REFRESH_SUCCESS,
     REFRESH_ERROR,
-} from '../types/auth';
+} from '../actions/types/auth';
 
 const initialState = {
     loginWaiting: false,
@@ -58,8 +59,7 @@ export default function authReducer(state = initialState, action) {
                     avatar: action.avatar,
                     sellsFrom: action.sellsFrom,
                     phone: action.phone,
-                }
-                
+                },
             };
         }
 

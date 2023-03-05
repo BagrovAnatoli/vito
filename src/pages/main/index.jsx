@@ -1,4 +1,6 @@
-import React from 'react';
+/* eslint-disable consistent-return */
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ClassesContext from '../context';
 import Header from '../../components/header';
 import Search from '../../components/search';
@@ -8,14 +10,38 @@ import Footer from '../../components/footer';
 import HeaderButton from '../../components/headerButton';
 import Cards from '../../components/cards';
 import classes from './index.module.scss';
+import cookies from '../../utils/cookies';
+import Modal from '../../components/Modal';
+import Login from '../../components/Login/index';
 
 function MainPage() {
+    const [loginVisible, setLoginVisible] = useState(false);
+
+    const navigate = useNavigate();
+
+    const enterHandler = () => {
+        const isToken = cookies.check('token');
+        if (isToken) {
+            alert('Да');
+            setLoginVisible(false);
+            return navigate('/profile');
+        }
+        if (!isToken) {
+            alert('Нет');
+            setLoginVisible(true);
+        }
+    };
+
+    const toggleModal = () => {
+        setLoginVisible(!loginVisible);
+    };
+
     return (
         <ClassesContext.Provider value={classes}>
             <div className={classes.wrapper}>
                 <div className={classes.container}>
                     <Header>
-                        <HeaderButton className={classes['header__btn-main-enter']} id="btnMainEnter">
+                        <HeaderButton className={classes['header__btn-main-enter']} id="btnMainEnter" onClick={enterHandler}>
                             Вход в личный кабинет
                         </HeaderButton>
                     </Header>
@@ -33,6 +59,12 @@ function MainPage() {
                     <Footer />
                 </div>
             </div>
+            {loginVisible
+            && (
+                <Modal onClick={toggleModal}>
+                    <Login />
+                </Modal>
+            )}
         </ClassesContext.Provider>
     );
 }

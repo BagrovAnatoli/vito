@@ -1,4 +1,5 @@
 import './App.scss';
+import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './components/protectedRoute';
 // import {
@@ -9,13 +10,20 @@ import ArticlePage from './pages/article';
 import ProfilePage from './pages/profile';
 import SellerProfilePage from './pages/sellerProfile';
 import NotFound from './pages/notFound';
+import cookies from './utils/cookies';
 
 export default function App() {
+  const [isToken, setIsToken] = useState(cookies.check('token'));
+
+  useEffect(() => {
+    setIsToken(cookies.check('token'));
+  }, []);
+
   return (
     <Routes>
       <Route path="/article/:id" element={<ArticlePage />} />
       <Route path="/seller-profile/:id" element={<SellerProfilePage />} />
-      <Route element={<ProtectedRoute redirectedPath="/" isAllowed />}>
+      <Route element={<ProtectedRoute redirectedPath="/" isAllowed={isToken} />}>
         <Route path="/profile" element={<ProfilePage />} />
       </Route>
       <Route path="/" element={<MainPage />} />

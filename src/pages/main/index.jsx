@@ -13,27 +13,34 @@ import classes from './index.module.scss';
 import cookies from '../../utils/cookies';
 import Modal from '../../components/Modal';
 import Login from '../../components/Login/index';
+import Register from '../../components/Register/index';
 
 function MainPage() {
-    const [loginVisible, setLoginVisible] = useState(false);
+    const [modalVisible, setModalVisible] = useState(false);
+    const [modalContent, setModalContent] = useState('login');
 
     const navigate = useNavigate();
+
+    const registerHandler = () => {
+        setModalContent('register');
+    };
 
     const enterHandler = () => {
         const isToken = cookies.check('token');
         if (isToken) {
             alert('Да');
-            setLoginVisible(false);
+            setModalVisible(false);
             return navigate('/profile');
         }
         if (!isToken) {
             alert('Нет');
-            setLoginVisible(true);
+            setModalContent('login');
+            setModalVisible(true);
         }
     };
 
     const toggleModal = () => {
-        setLoginVisible(!loginVisible);
+        setModalVisible(!modalVisible);
     };
 
     return (
@@ -59,10 +66,11 @@ function MainPage() {
                     <Footer />
                 </div>
             </div>
-            {loginVisible
+            {modalVisible
             && (
                 <Modal onClick={toggleModal}>
-                    <Login />
+                    {modalContent === 'login' && <Login registerHandler={registerHandler}/>}
+                    {modalContent === 'register' && <Register />}
                 </Modal>
             )}
         </ClassesContext.Provider>

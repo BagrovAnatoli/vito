@@ -5,7 +5,7 @@ import classes from './index.module.scss';
 import Logo from '../LogoText';
 import ButtonMain from '../ButtonMain';
 
-const LoginModal = ({ registerHandler }) => {
+const RegisterModal = () => {
   const onSubmit = (values) => {
     window.alert(JSON.stringify(values, 0, 2));
   };
@@ -21,6 +21,7 @@ const LoginModal = ({ registerHandler }) => {
       render={({ handleSubmit, values }) => (
         <form className={classes.form} onSubmit={handleSubmit}>
           <Logo className={classes.logo} />
+          <p>Регистрация</p>
           <div className={classes.inputs}>
             {/* <Field name="login" component="input" type="text" placeholder="логин" className={classes.input} />
             <Field name="email" component="input" type="text" placeholder="email" className={classes.input} />
@@ -55,7 +56,7 @@ const LoginModal = ({ registerHandler }) => {
             <ButtonMain
               content="Зарегистрироваться"
               colorBtn="white"
-              onClick={registerHandler}
+            //   onClick={showSignup}
             />
             <pre>{JSON.stringify(values, 0, 2)}</pre>
             {/* {error && <div className={classes.message}>{error}</div>} */}
@@ -66,4 +67,4 @@ const LoginModal = ({ registerHandler }) => {
   );
 };
 
-export default LoginModal;
+export default RegisterModal;

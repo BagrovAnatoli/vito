@@ -4,16 +4,17 @@ import { Form, Field } from 'react-final-form';
 import classes from './index.module.scss';
 import Logo from '../LogoText';
 import ButtonMain from '../ButtonMain';
+import {
+  required,
+  minLength,
+  mustBeEmail,
+  composeValidators,
+} from '../../utils/validators';
 
 const LoginModal = ({ registerHandler }) => {
   const onSubmit = (values) => {
     window.alert(JSON.stringify(values, 0, 2));
   };
-
-  const required = (value) => (value ? undefined : 'Обязательное поле');
-  const minLength = (length) => (value) => (value?.length >= length ? undefined : 'Минимум 3 символа');
-  const mustBeEmail = (value) => (value?.includes('@') ? undefined : 'Не похоже на email');
-  const composeValidators = (...validators) => (value) => validators.reduce((error, validator) => error || validator(value), undefined);
 
   return (
     <Form

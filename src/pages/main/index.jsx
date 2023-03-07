@@ -69,7 +69,7 @@ function MainPage() {
             {modalVisible
             && (
                 <Modal onClick={toggleModal}>
-                    {modalContent === 'login' && <Login registerHandler={registerHandler}/>}
+                    {modalContent === 'login' && <Login registerHandler={registerHandler} />}
                     {modalContent === 'register' && <Register />}
                 </Modal>
             )}

@@ -23,12 +23,22 @@ export const getCurrentUserStartAC = () => ({
     type: GET_CURRENT_USER_START,
 });
 
-export const getCurrentUserSuccessAC = () => ({
+export const getCurrentUserSuccessAC = (data) => ({
     type: GET_CURRENT_USER_SUCCESS,
+    id: data.id,
+    name: data.name,
+    email: data.email,
+    city: data.city,
+    avatar: data.avatar,
+    sellsFrom: data.sells_from,
+    phone: data.phone,
+    role: data.role,
+    surname: data.surname,
 });
 
-export const getCurrentUserErrorAC = () => ({
+export const getCurrentUserErrorAC = (error) => ({
     type: GET_CURRENT_USER_ERROR,
+    error,
 });
 
 export const getAllUsersStartAC = () => ({

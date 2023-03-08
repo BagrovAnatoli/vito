@@ -48,9 +48,9 @@ export default function authReducer(state = initialState, action) {
                 ...state,
                 registerWaiting: false,
                 registerError: false,
-                id: action.id,
                 user: {
                     ...state.user,
+                    id: action.id,
                     email: action.email,
                     role: action.role,
                     name: action.name,

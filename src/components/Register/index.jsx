@@ -1,6 +1,9 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/function-component-definition */
+import { useSelector, useDispatch } from 'react-redux';
 import { Form, Field } from 'react-final-form';
+import { register } from '../../store/actions/thunks/auth';
+import { registerErrorDetailSelector } from '../../store/selectors/auth';
 import classes from '../Login/index.module.scss';
 import Logo from '../LogoText';
 import ButtonMain from '../ButtonMain';
@@ -13,8 +16,12 @@ import {
 } from '../../utils/validators';
 
 const RegisterModal = () => {
+  const dispatch = useDispatch();
+  const errorDetail = useSelector(registerErrorDetailSelector);
+
   const onSubmit = (values) => {
-    window.alert(JSON.stringify(values, 0, 2));
+    // window.alert(JSON.stringify(values, 0, 2));
+    dispatch(register(values));
   };
 
   return (
@@ -70,7 +77,7 @@ const RegisterModal = () => {
           <div className={classes.buttons}>
             <ButtonMain type="submit" content="Зарегистрироваться" />
             <pre>{JSON.stringify(values, 0, 2)}</pre>
-            {/* {error && <div className={classes.message}>{error}</div>} */}
+            {errorDetail && <div className={classes.message}>{errorDetail}</div>}
           </div>
         </form>
       )}

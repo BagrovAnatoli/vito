@@ -13,25 +13,26 @@ import SellerProfilePage from './pages/sellerProfile';
 import NotFound from './pages/notFound';
 import auth from './utils/auth';
 import { refresh } from './store/actions/thunks/auth';
-import { getCurrentUser } from './store/actions/thunks/users';
-import { authUserEmailSelector, accessTokenSelector, refreshTokenSelector } from './store/selectors/auth';
+import { accessTokenSelector, refreshTokenSelector } from './store/selectors/auth';
 
 export default function App() {
   const dispatch = useDispatch();
   const [isAuth, setIsAuth] = useState(auth.check());
-  const userEmail = useSelector(authUserEmailSelector);
   const accessToken = useSelector(accessTokenSelector);
   const refreshToken = useSelector(refreshTokenSelector);
 
   useEffect(() => {
-    if (userEmail && accessToken && refreshToken) {
-      auth.on(userEmail, accessToken, refreshToken);
+    console.log('useEffect [accessToken, refreshToken, isAuth]');
+    console.log(`accessToken ${accessToken}`);
+    console.log(`refreshToken ${refreshToken}`);
+    if (accessToken && refreshToken) {
+      console.log('accessToken && refreshToken');
+      auth.on(accessToken, refreshToken);
       setIsAuth(auth.check());
     } else if (isAuth) {
       dispatch(refresh({ accessToken, refreshToken }));
-      dispatch(getCurrentUser());
     }
-  }, [userEmail, accessToken, refreshToken, isAuth]);
+  }, [accessToken, refreshToken, isAuth]);
 
   return (
     <Routes>

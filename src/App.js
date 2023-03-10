@@ -12,12 +12,15 @@ import ProfilePage from './pages/profile';
 import SellerProfilePage from './pages/sellerProfile';
 import NotFound from './pages/notFound';
 import auth from './utils/auth';
+import { AuthContext } from './authContext';
+// import cookies from './utils/cookies';
 import { refresh } from './store/actions/thunks/auth';
 import { accessTokenSelector, refreshTokenSelector } from './store/selectors/auth';
 
 export default function App() {
-  const dispatch = useDispatch();
   const [isAuth, setIsAuth] = useState(auth.check());
+
+  const dispatch = useDispatch();
   const accessToken = useSelector(accessTokenSelector);
   const refreshToken = useSelector(refreshTokenSelector);
 
@@ -35,15 +38,17 @@ export default function App() {
   }, [accessToken, refreshToken, isAuth]);
 
   return (
-    <Routes>
-      <Route path="/article/:id" element={<ArticlePage />} />
-      <Route path="/seller-profile/:id" element={<SellerProfilePage />} />
-      <Route element={<ProtectedRoute redirectedPath="/" isAllowed={isAuth} />}>
-        <Route path="/profile" element={<ProfilePage />} />
-      </Route>
-      <Route path="/" element={<MainPage />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <AuthContext.Provider value={{isAuth, setIsAuth}}>
+      <Routes>
+        <Route path="/article/:id" element={<ArticlePage />} />
+        <Route path="/seller-profile/:id" element={<SellerProfilePage />} />
+        <Route element={<ProtectedRoute redirectedPath="/" isAllowed={isAuth} />}>
+          <Route path="/profile" element={<ProfilePage />} />
+        </Route>
+        <Route path="/" element={<MainPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </AuthContext.Provider>
   );
   // const element = useRoutes([
   //   { path: '/', element: <MainPage /> },

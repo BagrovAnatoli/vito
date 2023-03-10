@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
 import './App.scss';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -12,7 +13,7 @@ import ProfilePage from './pages/profile';
 import SellerProfilePage from './pages/sellerProfile';
 import NotFound from './pages/notFound';
 import auth from './utils/auth';
-import { AuthContext } from './authContext';
+import { AuthContext } from './contexts';
 // import cookies from './utils/cookies';
 import { refresh } from './store/actions/thunks/auth';
 import { accessTokenSelector, refreshTokenSelector } from './store/selectors/auth';
@@ -28,6 +29,7 @@ export default function App() {
     console.log('useEffect [accessToken, refreshToken, isAuth]');
     console.log(`accessToken ${accessToken}`);
     console.log(`refreshToken ${refreshToken}`);
+    console.log(`isAuth ${isAuth}`);
     if (accessToken && refreshToken) {
       console.log('accessToken && refreshToken');
       auth.on(accessToken, refreshToken);
@@ -37,8 +39,12 @@ export default function App() {
     }
   }, [accessToken, refreshToken, isAuth]);
 
+  const logout = () => {
+    dispatch();
+  };
+
   return (
-    <AuthContext.Provider value={{isAuth, setIsAuth}}>
+    <AuthContext.Provider value={{ isAuth, logout }}>
       <Routes>
         <Route path="/article/:id" element={<ArticlePage />} />
         <Route path="/seller-profile/:id" element={<SellerProfilePage />} />
@@ -50,10 +56,4 @@ export default function App() {
       </Routes>
     </AuthContext.Provider>
   );
-  // const element = useRoutes([
-  //   { path: '/', element: <MainPage /> },
-  //   { path: '/profile', element: <ProfilePage /> },
-  //   { path: '*', element: <NotFound /> },
-  // ]);
-  // return element;
 }

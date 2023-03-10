@@ -1,5 +1,5 @@
 import React from 'react';
-import ClassesContext from '../pages/context';
+import { ClassesContext } from '../contexts';
 
 function HeaderLogo() {
     const classes = React.useContext(ClassesContext);

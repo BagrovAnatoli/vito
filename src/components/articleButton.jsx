@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ClassesContext from '../pages/context';
+import { ClassesContext } from '../contexts';
 
 function ArticleButton({ phone }) {
     const classes = React.useContext(ClassesContext);

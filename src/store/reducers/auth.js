@@ -3,6 +3,7 @@ import {
     LOGIN_START,
     LOGIN_SUCCESS,
     LOGIN_ERROR,
+    LOGOUT_SUCCESS,
     REGISTER_START,
     REGISTER_SUCCESS,
     REGISTER_ERROR,
@@ -94,6 +95,15 @@ export default function authReducer(state = initialState, action) {
                 ...state,
                 loginWaiting: false,
                 loginError: action.error,
+            };
+        }
+
+        case LOGOUT_SUCCESS: {
+            return {
+                ...initialState,
+                user: {
+                    ...initialState.user,
+                },
             };
         }
 

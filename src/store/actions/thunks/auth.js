@@ -3,6 +3,7 @@ import {
     loginStartAC,
     loginSuccessAC,
     loginErrorAC,
+    logoutSuccessAC,
     registerStartAC,
     registerSuccessAC,
     registerErrorAC,
@@ -10,6 +11,8 @@ import {
     refreshSuccessAC,
     refreshErrorAC,
 } from '../creators/auth';
+
+import auth from '../../../utils/auth';
 
 import { authAPI } from '../../../api/api';
 
@@ -25,6 +28,12 @@ export const login = ({ email, password }) => async (dispatch) => {
         console.log(error);
         dispatch(loginErrorAC(error));
     }
+};
+
+export const logout = () => async (dispatch) => {
+    console.log('logoutThunk');
+    auth.off();
+    dispatch(logoutSuccessAC());
 };
 
 export const register = (userData) => async (dispatch) => {

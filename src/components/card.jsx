@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ClassesContext from '../pages/context';
+import { ClassesContext } from '../contexts';
 import BASE_URL from '../constants';
 
 function Card({

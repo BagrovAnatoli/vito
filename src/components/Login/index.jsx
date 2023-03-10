@@ -14,16 +14,17 @@ import {
   composeValidators,
 } from '../../utils/validators';
 
-const LoginModal = ({ registerHandler }) => {
+const LoginModal = ({ registerHandler, successLoginHandler }) => {
   const dispatch = useDispatch();
   const errorDetail = useSelector(loginErrorDetailSelector);
 
-  const onSubmit = (values) => {
+  const onSubmit = async (values) => {
     // window.alert(JSON.stringify(values, 0, 2));
-    dispatch(login({
+    await dispatch(login({
       email: values.email,
       password: values.password,
     }));
+    successLoginHandler();
   };
 
   return (

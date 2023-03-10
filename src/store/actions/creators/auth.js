@@ -2,6 +2,8 @@ import {
     LOGIN_START,
     LOGIN_SUCCESS,
     LOGIN_ERROR,
+    LOGOUT_START,
+    LOGOUT_SUCCESS,
     REGISTER_START,
     REGISTER_SUCCESS,
     REGISTER_ERROR,
@@ -24,6 +26,14 @@ export const loginSuccessAC = (data) => ({
 export const loginErrorAC = (error) => ({
     type: LOGIN_ERROR,
     error,
+});
+
+export const logoutStartAC = () => ({
+    type: LOGOUT_START,
+});
+
+export const logoutSuccessAC = () => ({
+    type: LOGOUT_SUCCESS,
 });
 
 export const registerStartAC = () => ({

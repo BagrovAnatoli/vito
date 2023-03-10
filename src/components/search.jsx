@@ -3,7 +3,7 @@ import React from 'react';
 import { Form, Field } from 'react-final-form';
 import { useDispatch } from 'react-redux';
 import { setAdsQueryAC } from '../store/actions/creators/ads';
-import ClassesContext from '../pages/context';
+import { ClassesContext } from '../contexts';
 // import { ads } from '../api/stubData/ads';
 
 function Search() {

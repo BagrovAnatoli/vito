@@ -1,6 +1,6 @@
 import React from 'react';
 // import { useParams } from 'react-router-dom';
-import ClassesContext from '../context';
+import { ClassesContext } from '../../contexts';
 import Header from '../../components/header';
 import Article from '../../components/article';
 import Footer from '../../components/footer';

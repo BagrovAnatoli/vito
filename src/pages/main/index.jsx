@@ -1,7 +1,9 @@
 /* eslint-disable consistent-return */
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ClassesContext from '../context';
+import { useDispatch } from 'react-redux';
+import { ClassesContext, AuthContext } from '../../contexts';
+import { logout } from '../../store/actions/thunks/auth';
 import Header from '../../components/header';
 import Search from '../../components/search';
 import Footer from '../../components/footer';
@@ -10,7 +12,6 @@ import Footer from '../../components/footer';
 import HeaderButton from '../../components/headerButton';
 import Cards from '../../components/cards';
 import classes from './index.module.scss';
-import cookies from '../../utils/cookies';
 import Modal from '../../components/Modal';
 import Login from '../../components/Login/index';
 import Register from '../../components/Register/index';
@@ -18,25 +19,38 @@ import Register from '../../components/Register/index';
 function MainPage() {
     const [modalVisible, setModalVisible] = useState(false);
     const [modalContent, setModalContent] = useState('login');
+    const { isAuth } = useContext(AuthContext);
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const registerHandler = () => {
         setModalContent('register');
     };
 
-    const enterHandler = () => {
-        const isToken = cookies.check('token');
-        if (isToken) {
+    const loginHandler = () => {
+        if (isAuth) {
             alert('Да');
             setModalVisible(false);
             return navigate('/profile');
         }
-        if (!isToken) {
+        if (!isAuth) {
             alert('Нет');
             setModalContent('login');
             setModalVisible(true);
         }
+    };
+
+    const successLoginHandler = () => {
+        setModalVisible(false);
+    };
+
+    const logoutHandler = () => {
+        dispatch(logout());
+    };
+
+    const enterHandler = () => {
+        loginHandler();
     };
 
     const toggleModal = () => {
@@ -48,9 +62,22 @@ function MainPage() {
             <div className={classes.wrapper}>
                 <div className={classes.container}>
                     <Header>
-                        <HeaderButton className={classes['header__btn-main-enter']} id="btnMainEnter" onClick={enterHandler}>
-                            Вход в личный кабинет
-                        </HeaderButton>
+                        {!isAuth
+                        ? (
+                            <HeaderButton className={classes['header__btn-main-enter']} id="btnMainEnter" onClick={loginHandler}>
+                                Вход в личный кабинет
+                            </HeaderButton>
+                        )
+                        : (
+                            <>
+                                <HeaderButton className={classes['header__btn-main-enter']} id="btnMainEnter" onClick={enterHandler}>
+                                    Личный кабинет
+                                </HeaderButton>
+                                <HeaderButton className={classes['header__btn-main-out']} id="btnMainOut" onClick={logoutHandler}>
+                                    Выйти
+                                </HeaderButton>
+                            </>
+                        )}
                     </Header>
                     <main className={classes.main}>
                         <Search />
@@ -69,7 +96,7 @@ function MainPage() {
             {modalVisible
             && (
                 <Modal onClick={toggleModal}>
-                    {modalContent === 'login' && <Login registerHandler={registerHandler} />}
+                    {modalContent === 'login' && <Login registerHandler={registerHandler} successLoginHandler={successLoginHandler} />}
                     {modalContent === 'register' && <Register />}
                 </Modal>
             )}

@@ -2,7 +2,7 @@
 /* eslint-disable no-alert */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from 'react';
-import ClassesContext from '../pages/context';
+import { ClassesContext } from '../contexts';
 import BASE_URL from '../constants';
 
 function ArticleImages({ images }) {

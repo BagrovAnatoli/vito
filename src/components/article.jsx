@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { fetchArticleById } from '../store/actions/thunks/ads';
 import { articleSelector, articleLoadingSelector, articleErrorSelector } from '../store/selectors/ads';
-import ClassesContext from '../pages/context';
+import { ClassesContext } from '../contexts';
 import ArticleImages from './articleImages';
 import PhoneButton from './phoneButton/phoneButton';
 import BASE_URL from '../constants';

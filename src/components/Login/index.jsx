@@ -23,9 +23,6 @@ const LoginModal = ({ registerHandler }) => {
         <form className={classes.form} onSubmit={handleSubmit}>
           <Logo className={classes.logo} />
           <div className={classes.inputs}>
-            {/* <Field name="login" component="input" type="text" placeholder="логин" className={classes.input} />
-            <Field name="email" component="input" type="text" placeholder="email" className={classes.input} />
-            <Field name="password" component="input" type="password" placeholder="пароль" className={classes.input} /> */}
             <Field name="login" validate={composeValidators(required, minLength(3))}>
               {({ input, meta }) => (
                 <>

@@ -1,5 +1,6 @@
 import './App.scss';
 import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './components/protectedRoute';
 // import {
@@ -10,20 +11,34 @@ import ArticlePage from './pages/article';
 import ProfilePage from './pages/profile';
 import SellerProfilePage from './pages/sellerProfile';
 import NotFound from './pages/notFound';
-import cookies from './utils/cookies';
+import auth from './utils/auth';
+import { refresh } from './store/actions/thunks/auth';
+import { accessTokenSelector, refreshTokenSelector } from './store/selectors/auth';
 
 export default function App() {
-  const [isToken, setIsToken] = useState(cookies.check('token'));
+  const dispatch = useDispatch();
+  const [isAuth, setIsAuth] = useState(auth.check());
+  const accessToken = useSelector(accessTokenSelector);
+  const refreshToken = useSelector(refreshTokenSelector);
 
   useEffect(() => {
-    setIsToken(cookies.check('token'));
-  }, []);
+    console.log('useEffect [accessToken, refreshToken, isAuth]');
+    console.log(`accessToken ${accessToken}`);
+    console.log(`refreshToken ${refreshToken}`);
+    if (accessToken && refreshToken) {
+      console.log('accessToken && refreshToken');
+      auth.on(accessToken, refreshToken);
+      setIsAuth(auth.check());
+    } else if (isAuth) {
+      dispatch(refresh({ accessToken, refreshToken }));
+    }
+  }, [accessToken, refreshToken, isAuth]);
 
   return (
     <Routes>
       <Route path="/article/:id" element={<ArticlePage />} />
       <Route path="/seller-profile/:id" element={<SellerProfilePage />} />
-      <Route element={<ProtectedRoute redirectedPath="/" isAllowed={isToken} />}>
+      <Route element={<ProtectedRoute redirectedPath="/" isAllowed={isAuth} />}>
         <Route path="/profile" element={<ProfilePage />} />
       </Route>
       <Route path="/" element={<MainPage />} />

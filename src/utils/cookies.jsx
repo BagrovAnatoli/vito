@@ -1,3 +1,5 @@
+const cookiesLiveTime = 360;
+
 const cookies = {
     check(name) {
         return document.cookie.includes(`${name}=`);
@@ -6,7 +8,7 @@ const cookies = {
     set(name, value) {
         document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(
             value,
-        )}; path=/`;
+        )}; path=/; max-age=${cookiesLiveTime}`;
     },
 
     delete(name) {

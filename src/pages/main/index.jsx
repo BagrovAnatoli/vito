@@ -29,29 +29,23 @@ function MainPage() {
     };
 
     const loginHandler = () => {
-        if (isAuth) {
-            alert('Да');
-            setModalVisible(false);
-            return navigate('/profile');
-        }
-        if (!isAuth) {
-            alert('Нет');
-            setModalContent('login');
-            setModalVisible(true);
-        }
+        setModalContent('login');
+        setModalVisible(true);
     };
 
     const successLoginHandler = () => {
         setModalVisible(false);
     };
 
+    const successRegisterHandler = () => {
+        setModalContent('login');
+    };
+
     const logoutHandler = () => {
         dispatch(logout());
     };
 
-    const enterHandler = () => {
-        loginHandler();
-    };
+    const enterHandler = () => navigate('/profile');
 
     const toggleModal = () => {
         setModalVisible(!modalVisible);
@@ -97,7 +91,7 @@ function MainPage() {
             && (
                 <Modal onClick={toggleModal}>
                     {modalContent === 'login' && <Login registerHandler={registerHandler} successLoginHandler={successLoginHandler} />}
-                    {modalContent === 'register' && <Register />}
+                    {modalContent === 'register' && <Register successRegisterHandler={successRegisterHandler} />}
                 </Modal>
             )}
         </ClassesContext.Provider>

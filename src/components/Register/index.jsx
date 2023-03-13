@@ -15,13 +15,13 @@ import {
   composeValidators,
 } from '../../utils/validators';
 
-const RegisterModal = () => {
+const RegisterModal = ({ successRegisterHandler }) => {
   const dispatch = useDispatch();
   const errorDetail = useSelector(registerErrorDetailSelector);
 
-  const onSubmit = (values) => {
-    // window.alert(JSON.stringify(values, 0, 2));
-    dispatch(register(values));
+  const onSubmit = async (values) => {
+    await dispatch(register(values));
+    successRegisterHandler();
   };
 
   return (

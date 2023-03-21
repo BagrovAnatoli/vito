@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { ClassesContext } from '../../contexts';
+import { useParams, useNavigate } from 'react-router-dom';
+import { ClassesContext, AuthContext } from '../../contexts';
+import { logout } from '../../store/actions/thunks/auth';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import Logo from '../../components/logo';
@@ -17,21 +18,53 @@ import { usersLoadingSelector, usersErrorSelector, userByIdSelector } from '../.
 
 import Modal from '../../components/Modal';
 import Login from '../../components/Login/index';
+import Register from '../../components/Register/index';
 
 function SellerProfilePage() {
     const urlParams = useParams();
     const userId = Number(urlParams.id);
     console.log(userId);
 
-    const [isModalVisible, setModalVisible] = useState(true);
+    const [modalVisible, setModalVisible] = useState(true);
+    const [modalContent, setModalContent] = useState('login');
+    const { isAuth } = useContext(AuthContext);
+
+    const navigate = useNavigate();
 
     const dispatch = useDispatch();
     const user = useSelector(userByIdSelector(userId));
     const loading = useSelector(usersLoadingSelector);
     const error = useSelector(usersErrorSelector);
 
+    const registerHandler = () => {
+        setModalContent('register');
+    };
+
+    const loginHandler = () => {
+        setModalContent('login');
+        setModalVisible(true);
+    };
+
+    const putAdHandler = () => {
+        alert('putAd');
+    };
+
+    const successLoginHandler = () => {
+        setModalVisible(false);
+    };
+
+    const successRegisterHandler = () => {
+        setModalContent('login');
+    };
+
+    const logoutHandler = () => {
+        dispatch(logout());
+    };
+
+    const enterHandler = () => navigate('/profile');
+
     const toggleModal = () => {
-        setModalVisible(!isModalVisible);
+        setModalVisible(!modalVisible);
     };
 
     useEffect(() => {
@@ -50,6 +83,33 @@ function SellerProfilePage() {
                         <HeaderButton className={classes['header__btn-lk']} id="btnlk">
                             Личный кабинет
                         </HeaderButton>
+                    </Header>
+                    <Header>
+                        <HeaderLogo />
+                        {!isAuth
+                        ? (
+                            <>
+                                <HeaderButton className={classes['header__btn-putAd']} id="btputAd" onClick={loginHandler}>
+                                    Разместить объявление
+                                </HeaderButton>
+                                <HeaderButton className={classes['header__btn-lk']} id="btnlk" onClick={loginHandler}>
+                                    Личный кабинет
+                                </HeaderButton>
+                            </>
+                        )
+                        : (
+                            <>
+                                <HeaderButton className={classes['header__btn-putAd']} id="btputAd" onClick={putAdHandler}>
+                                    Разместить объявление
+                                </HeaderButton>
+                                <HeaderButton className={classes['header__btn-main-enter']} id="btnMainEnter" onClick={enterHandler}>
+                                    Личный кабинет
+                                </HeaderButton>
+                                <HeaderButton className={classes['header__btn-main-out']} id="btnMainOut" onClick={logoutHandler}>
+                                    Выйти
+                                </HeaderButton>
+                            </>
+                        )}
                     </Header>
                     <main className={classes.main}>
                         <div className={classes.main__container}>
@@ -109,10 +169,11 @@ function SellerProfilePage() {
                     <Footer />
                 </div>
             </div>
-            {isModalVisible
+            {modalVisible
             && (
                 <Modal onClick={toggleModal}>
-                    <Login />
+                    {modalContent === 'login' && <Login registerHandler={registerHandler} successLoginHandler={successLoginHandler} />}
+                    {modalContent === 'register' && <Register successRegisterHandler={successRegisterHandler} />}
                 </Modal>
             )}
         </ClassesContext.Provider>

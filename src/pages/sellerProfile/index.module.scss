@@ -124,6 +124,30 @@ a {
         line-height: 1;
     }
 
+    &__btn-main-enter {
+        width: 224px;
+        height: 40px;
+        margin-left: 10px;
+        border: 1px solid #FFFFFF;
+        border-radius: 6px;
+        background-color: transparent;
+        color: #FFFFFF;
+        font-size: 16px;
+        line-height: 1;
+    }
+
+    &__btn-main-out {
+        width: 224px;
+        height: 40px;
+        margin-left: 10px;
+        border: 1px solid #FFFFFF;
+        border-radius: 6px;
+        background-color: transparent;
+        color: #FFFFFF;
+        font-size: 16px;
+        line-height: 1;
+    }
+
     &__logo {
         display: none;
     }

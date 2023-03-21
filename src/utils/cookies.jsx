@@ -12,7 +12,7 @@ const cookies = {
     },
 
     delete(name) {
-        document.cookie = `${encodeURIComponent(name)}=''; max-age=0`;
+        document.cookie = `${encodeURIComponent(name)}=''; path=/; max-age=0`;
     },
 };
 

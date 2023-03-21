@@ -27,7 +27,7 @@ function SellerProfilePage() {
 
     const [modalVisible, setModalVisible] = useState(true);
     const [modalContent, setModalContent] = useState('login');
-    const { isAuth } = useContext(AuthContext);
+    const { isAuth, logoutContext } = useContext(AuthContext);
 
     const navigate = useNavigate();
 
@@ -57,8 +57,9 @@ function SellerProfilePage() {
         setModalContent('login');
     };
 
-    const logoutHandler = () => {
-        dispatch(logout());
+    const logoutHandler = async () => {
+        await dispatch(logout());
+        logoutContext();
     };
 
     const enterHandler = () => navigate('/profile');
@@ -75,15 +76,6 @@ function SellerProfilePage() {
         <ClassesContext.Provider value={classes}>
             <div className={classes.wrapper}>
                 <div className={classes.container}>
-                    <Header>
-                        <HeaderLogo />
-                        <HeaderButton className={classes['header__btn-putAd']} id="btputAd">
-                            Разместить объявление
-                        </HeaderButton>
-                        <HeaderButton className={classes['header__btn-lk']} id="btnlk">
-                            Личный кабинет
-                        </HeaderButton>
-                    </Header>
                     <Header>
                         <HeaderLogo />
                         {!isAuth

@@ -39,12 +39,10 @@ export default function App() {
     }
   }, [accessToken, refreshToken, isAuth]);
 
-  const logout = () => {
-    dispatch();
-  };
+  const logoutContext = () => setIsAuth(auth.check());
 
   return (
-    <AuthContext.Provider value={{ isAuth, logout }}>
+    <AuthContext.Provider value={{ isAuth, logoutContext }}>
       <Routes>
         <Route path="/article/:id" element={<ArticlePage />} />
         <Route path="/seller-profile/:id" element={<SellerProfilePage />} />

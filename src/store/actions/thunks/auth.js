@@ -30,7 +30,7 @@ export const login = ({ email, password }) => async (dispatch) => {
     }
 };
 
-export const logout = () => async (dispatch) => {
+export const logout = () => (dispatch) => {
     console.log('logoutThunk');
     auth.off();
     dispatch(logoutSuccessAC());

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { ClassesContext, AuthContext } from '../../contexts';
 import { logout } from '../../store/actions/thunks/auth';
@@ -20,12 +20,12 @@ function ProfilePage() {
     const [modalContent, setModalContent] = useState('login');
     const { isAuth } = useContext(AuthContext);
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const createAdHandler = () => {
-        alert("Создать объявление");
-    }
+        alert('Создать объявление');
+    };
 
     const registerHandler = () => {
         setModalContent('register');
@@ -90,8 +90,9 @@ function ProfilePage() {
                                         <Button id="btnGoBack">Вернуться на&nbsp;главную</Button>
                                     </form>
                                 </div>
-                                <h2 className={classes.main__h2}>{ isAuth ? "Здравствуйте, Антон!"
-                                : "Здравствуйте, гость!" }</h2>
+                                <h2 className={classes.main__h2}>{ isAuth ? 'Здравствуйте, Антон!'
+                                : 'Здравствуйте, гость!' }
+                                </h2>
                                 {isAuth
                                 ? (
                                     <div className={`${classes.main__profile} ${classes.profile}`}>
@@ -144,23 +145,30 @@ function ProfilePage() {
                                         </div>
                                     </div>
                                 )}
-                                
-                                <h3 className={`${classes.main__title} ${classes.title}`}>
-                                    Мои товары
-                                </h3>
+
+                                {isAuth
+                                && (
+                                        <h3 className={`${classes.main__title} ${classes.title}`}>
+                                            Мои товары
+                                        </h3>
+                                )}
+
                             </div>
-                            <div className={classes.main__content}>
-                                <div className={`${classes.content__cards} ${classes.cards}`}>
+                            {isAuth
+                            && (
+                                <div className={classes.main__content}>
+                                    <div className={`${classes.content__cards} ${classes.cards}`}>
 
-                                    <Card />
-                                    <Card />
-                                    <Card />
-                                    <Card />
-                                    <Card />
-                                    <Card />
+                                        <Card />
+                                        <Card />
+                                        <Card />
+                                        <Card />
+                                        <Card />
+                                        <Card />
 
+                                    </div>
                                 </div>
-                            </div>
+                            )}
                         </div>
                     </main>
                     <Footer />

@@ -15,7 +15,7 @@ import Login from '../../components/Login/index';
 import Register from '../../components/Register/index';
 
 function ArticlePage() {
-    const [modalVisible, setModalVisible] = useState(true);
+    const [modalVisible, setModalVisible] = useState(false);
     const [modalContent, setModalContent] = useState('login');
     const { isAuth, logoutContext } = useContext(AuthContext);
 

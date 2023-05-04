@@ -96,6 +96,29 @@ a {
       justify-content: end;
   }
 
+  &__btn-main-enter {
+    width: 224px;
+    height: 40px;
+    border: 1px solid #FFFFFF;
+    border-radius: 6px;
+    background-color: transparent;
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 1;
+}
+
+&__btn-main-out {
+    margin-left: 10px;
+    width: 224px;
+    height: 40px;
+    border: 1px solid #FFFFFF;
+    border-radius: 6px;
+    background-color: transparent;
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 1;
+}
+
   &__btn-lk {
       width: 173px;
       height: 40px;

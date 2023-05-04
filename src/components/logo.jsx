@@ -5,7 +5,7 @@ function Logo() {
     const classes = React.useContext(ClassesContext);
 
     return (
-        <a className={classes['menu__logo-link']} href="/" target="_blank">
+        <a className={classes['menu__logo-link']} href="/" target="_self">
             <img className={classes['menu__logo-img']} src="/img/logo.png" alt="logo" />
         </a>
     );

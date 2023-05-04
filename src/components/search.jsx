@@ -26,7 +26,7 @@ function Search() {
 
     return (
         <div className={`${classes.main__search} ${classes.search}`}>
-            <a className={classes['search__logo-link']} href="/" target="_blank">
+            <a className={classes['search__logo-link']} href="/" target="_self">
                 <img className={classes['search__logo-img']} src="img/logo.png" alt="logo" />
             </a>
             <a className={classes['search__logo-mob-link']} href="/" target="_blank">

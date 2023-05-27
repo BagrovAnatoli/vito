@@ -1,12 +1,12 @@
 import React from 'react';
-import ClassesContext from '../pages/context';
+import { ClassesContext } from '../contexts';
 
 function Logo() {
     const classes = React.useContext(ClassesContext);
 
     return (
-        <a className={classes['menu__logo-link']} href="/" target="_blank">
-            <img className={classes['menu__logo-img']} src="img/logo.png" alt="logo" />
+        <a className={classes['menu__logo-link']} href="/" target="_self">
+            <img className={classes['menu__logo-img']} src="/img/logo.png" alt="logo" />
         </a>
     );
 }

@@ -1,9 +1,10 @@
 /* eslint-disable consistent-return */
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { ClassesContext, AuthContext } from '../../contexts';
-import { logout } from '../../store/actions/thunks/auth';
+import { logout, refresh } from '../../store/actions/thunks/auth';
+import cookies from '../../utils/cookies';
 import Header from '../../components/header';
 import Search from '../../components/search';
 import Footer from '../../components/footer';
@@ -50,6 +51,13 @@ function MainPage() {
     const toggleModal = () => {
         setModalVisible(!modalVisible);
     };
+
+    useEffect(() => {
+        console.log('======= main useEffect ======');
+        const accessFromCookies = cookies.read('access_token');
+        const refreshFromCookies = cookies.read('refresh_token');
+        dispatch(refresh({ accessToken: accessFromCookies, refreshToken: refreshFromCookies }));
+    }, []);
 
     return (
         <ClassesContext.Provider value={classes}>

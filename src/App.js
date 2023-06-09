@@ -17,7 +17,6 @@ import { AuthContext } from './contexts';
 // import cookies from './utils/cookies';
 import { refresh } from './store/actions/thunks/auth';
 import { accessTokenSelector, refreshTokenSelector } from './store/selectors/auth';
-import cookies from './utils/cookies';
 
 export default function App() {
   const [isAuth, setIsAuth] = useState(auth.check());
@@ -25,15 +24,6 @@ export default function App() {
   const dispatch = useDispatch();
   const accessToken = useSelector(accessTokenSelector);
   const refreshToken = useSelector(refreshTokenSelector);
-  console.log('=======App=======');
-  console.log(`accessToken ${accessToken}`);
-  console.log(`refreshToken ${refreshToken}`);
-
-  // const dispatchRefresh = async () => {
-  //   await dispatch(refresh({ accessToken, refreshToken }));
-  //   console.log(`refresh accessToken ${accessToken}`);
-  //   console.log(`refresh refreshToken ${refreshToken}`);
-  // };
 
   useEffect(() => {
     console.log('useEffect [accessToken, refreshToken, isAuth]');
@@ -45,10 +35,7 @@ export default function App() {
       auth.on(accessToken, refreshToken);
       setIsAuth(auth.check());
     } else if (isAuth) {
-      const accessFromCookies = cookies.read('access_token');
-      const refreshFromCookies = cookies.read('refresh_token');
-      dispatch(refresh({ accessToken: accessFromCookies, refreshToken: refreshFromCookies }));
-      // dispatchRefresh();
+      dispatch(refresh({ accessToken, refreshToken }));
     }
   }, [accessToken, refreshToken, isAuth]);
 

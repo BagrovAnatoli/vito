@@ -88,7 +88,7 @@ function ArticlePage() {
                     <main className={classes.main}>
                         <div className={classes.main__container}>
                             <div className={`${classes.main__menu} ${classes.menu}`}>
-                                <a className={classes['menu__logo-link']} href="/" target="_self">
+                                <a className={classes['menu__logo-link']} href="/" target="_blank">
                                     <img className={classes['menu__logo-img']} src="/img/logo.png" alt="logo" />
                                 </a>
                                 <form className={classes.menu__form} action="/">

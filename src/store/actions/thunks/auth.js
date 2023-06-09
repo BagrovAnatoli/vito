@@ -52,8 +52,6 @@ export const register = (userData) => async (dispatch) => {
 
 export const refresh = ({ accessToken, refreshToken }) => async (dispatch) => {
     console.log('refreshThunk');
-    console.log(`refreshThunk accessToken ${accessToken}`);
-    console.log(`refreshThunk refreshToken ${refreshToken}`);
     dispatch(refreshStartAC());
 
     try {

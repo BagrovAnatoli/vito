@@ -134,6 +134,6 @@ export const authAPI = {
         return instance.post('/auth/login', { email, password });
     },
     refresh({ accessToken, refreshToken }) {
-        return instance.put('/auth/login', { accessToken, refreshToken });
+        return instance.put('/auth/login', { access_token: accessToken, refresh_token: refreshToken });
     },
 };

@@ -80,6 +80,7 @@ export default function authReducer(state = initialState, action) {
         }
 
         case LOGIN_SUCCESS: {
+            console.log('===LOGIN_SUCCESS in reducers===');
             return {
                 ...state,
                 loginWaiting: false,
@@ -115,6 +116,7 @@ export default function authReducer(state = initialState, action) {
         }
 
         case REFRESH_SUCCESS: {
+            console.log('===REFRESH_SUCCESS in reducers===');
             return {
                 ...state,
                 refreshWaiting: false,

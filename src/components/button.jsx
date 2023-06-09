@@ -1,5 +1,5 @@
 import React from 'react';
-import ClassesContext from '../pages/context';
+import { ClassesContext } from '../contexts';
 
 function Button({ children, id }) {
     const classes = React.useContext(ClassesContext);
